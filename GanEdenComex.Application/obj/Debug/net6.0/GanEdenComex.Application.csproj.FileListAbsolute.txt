@@ -9,6 +9,8 @@ C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\ne
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Humanizer.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\System.Web.Http.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
@@ -25,6 +27,8 @@ C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\ne
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Npgsql.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll

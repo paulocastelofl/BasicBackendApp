@@ -10,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -24,6 +23,14 @@ builder.Services.AddDbContext<PostgresContext>(options =>
 
 builder.Services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
 builder.Services.AddScoped<IBaseService<User>, BaseService<User>>();
+
+builder.Services.AddScoped<IBaseRepository<Produto>, BaseRepository<Produto>>();
+builder.Services.AddScoped<IBaseService<Produto>, BaseService<Produto>>();
+
+builder.Services.AddScoped<IBaseRepository<Fabricante>, BaseRepository<Fabricante>>();
+builder.Services.AddScoped<IBaseService<Fabricante>, BaseService<Fabricante>>();
+
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 

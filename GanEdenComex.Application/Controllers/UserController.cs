@@ -95,12 +95,7 @@ namespace GanEdenComex.Application.Controllers
                 return BadRequest(ex);
             }
 
-           
-
-
-
         }
-
 
     }
 }
