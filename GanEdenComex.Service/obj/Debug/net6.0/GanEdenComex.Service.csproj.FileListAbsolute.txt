@@ -1,0 +1,15 @@
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\bin\Debug\net6.0\GanEdenComex.Service.deps.json
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\bin\Debug\net6.0\GanEdenComex.Service.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\bin\Debug\net6.0\GanEdenComex.Service.pdb
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\bin\Debug\net6.0\GanEdenComex.Domain.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\bin\Debug\net6.0\GanEdenComex.Domain.pdb
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\obj\Debug\net6.0\GanEdenComex.Service.csproj.AssemblyReference.cache
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\obj\Debug\net6.0\GanEdenComex.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\obj\Debug\net6.0\GanEdenComex.Service.AssemblyInfoInputs.cache
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\obj\Debug\net6.0\GanEdenComex.Service.AssemblyInfo.cs
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\obj\Debug\net6.0\GanEdenComex.Service.csproj.CoreCompileInputs.cache
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\obj\Debug\net6.0\GanEdenComex.Service.csproj.CopyComplete
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\obj\Debug\net6.0\GanEdenComex.Service.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\obj\Debug\net6.0\refint\GanEdenComex.Service.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\obj\Debug\net6.0\GanEdenComex.Service.pdb
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\obj\Debug\net6.0\ref\GanEdenComex.Service.dll
