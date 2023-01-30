@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "EntityFrameworkCore.EncryptColumn/6.0.8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp6.0/EntityFrameworkCore.EncryptColumn.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp6.0/EntityFrameworkCore.EncryptColumn.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
       "FluentValidation/11.2.1": {
         "type": "package",
         "compile": {
@@ -1923,6 +1939,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "EntityFrameworkCore.EncryptColumn": "6.0.8",
           "FluentValidation.AspNetCore": "11.2.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.1"
         },
@@ -1932,10 +1949,33 @@
         "runtime": {
           "bin/placeholder/GanEdenComex.Domain.dll": {}
         }
+      },
+      "GanEdenComex.Infra.CrossCutting/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/GanEdenComex.Infra.CrossCutting.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GanEdenComex.Infra.CrossCutting.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "EntityFrameworkCore.EncryptColumn/6.0.8": {
+      "sha512": "AgnhI+4ZM0lySJKR4cEWvDe/EtGL9nIF3jAMz9XikAyMdbEknDTlj0ksSdLwq7OVXMh/ZsR0IuRHNkcnfXkGzQ==",
+      "type": "package",
+      "path": "entityframeworkcore.encryptcolumn/6.0.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "entityframeworkcore.encryptcolumn.6.0.8.nupkg.sha512",
+        "entityframeworkcore.encryptcolumn.nuspec",
+        "lib/netcoreapp6.0/EntityFrameworkCore.EncryptColumn.dll",
+        "lib/netcoreapp6.0/EntityFrameworkCore.EncryptColumn.pdb"
+      ]
+    },
     "FluentValidation/11.2.1": {
       "sha512": "ZrQD0TGd0mHqf/zErZOEaba8cBeInaJj02nqinO+0La3uE08sJ5ScTYqsCbdx9fLHsX8rh+5KH5RtL2eOUS+OA==",
       "type": "package",
@@ -6261,11 +6301,17 @@
       "type": "project",
       "path": "../GanEdenComex.Domain/GanEdenComex.Domain.csproj",
       "msbuildProject": "../GanEdenComex.Domain/GanEdenComex.Domain.csproj"
+    },
+    "GanEdenComex.Infra.CrossCutting/1.0.0": {
+      "type": "project",
+      "path": "../GanEdenComex.Infra.CrossCutting/GanEdenComex.Infra.CrossCutting.csproj",
+      "msbuildProject": "../GanEdenComex.Infra.CrossCutting/GanEdenComex.Infra.CrossCutting.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "GanEdenComex.Domain >= 1.0.0",
+      "GanEdenComex.Infra.CrossCutting >= 1.0.0",
       "Microsoft.AspNet.WebApi.Core >= 5.2.9"
     ]
   },
@@ -6298,6 +6344,9 @@
           "projectReferences": {
             "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Domain\\GanEdenComex.Domain.csproj": {
               "projectPath": "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Domain\\GanEdenComex.Domain.csproj"
+            },
+            "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Infra.CrossCutting\\GanEdenComex.Infra.CrossCutting.csproj": {
+              "projectPath": "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Infra.CrossCutting\\GanEdenComex.Infra.CrossCutting.csproj"
             }
           }
         }

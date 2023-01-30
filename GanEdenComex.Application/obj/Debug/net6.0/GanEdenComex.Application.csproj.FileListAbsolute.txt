@@ -5,6 +5,7 @@ C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\ne
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Application.runtimeconfig.json
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Application.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Application.pdb
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\EntityFrameworkCore.EncryptColumn.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
@@ -65,3 +66,5 @@ C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\obj\Debug\ne
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\obj\Debug\net6.0\GanEdenComex.Application.pdb
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\obj\Debug\net6.0\GanEdenComex.Application.genruntimeconfig.cache
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\obj\Debug\net6.0\ref\GanEdenComex.Application.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Infra.CrossCutting.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Infra.CrossCutting.pdb

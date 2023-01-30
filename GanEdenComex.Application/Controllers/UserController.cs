@@ -8,11 +8,24 @@ namespace GanEdenComex.Application.Controllers
     [ApiController]
     public class UserController : Controller
     {
-        private IBaseService<User> _baseUserService;
 
-        public UserController(IBaseService<User> baseUserService)
+       /* {
+  "id": 0,
+  "name": "João Almeida",
+  "email": "joal2022@gamil.com",
+  "password": "Jo#2022"
+}*/
+
+        private IBaseService<User> _baseUserService;
+        private IUserService _userService;
+
+        public UserController(
+            IBaseService<User> baseUserService,
+            IUserService userService
+        )
         {
             _baseUserService = baseUserService;
+            _userService = userService;
         }
 
         [HttpPost]
@@ -23,7 +36,7 @@ namespace GanEdenComex.Application.Controllers
 
             try
             {
-                return Ok(_baseUserService.Add(user));
+                return Ok(_userService.Add(user));
             }
             catch (Exception ex)
             {

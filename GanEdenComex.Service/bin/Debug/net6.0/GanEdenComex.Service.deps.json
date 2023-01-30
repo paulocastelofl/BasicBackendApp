@@ -9,10 +9,22 @@
       "GanEdenComex.Service/1.0.0": {
         "dependencies": {
           "GanEdenComex.Domain": "1.0.0",
+          "GanEdenComex.Infra.CrossCutting": "1.0.0",
           "Microsoft.AspNet.WebApi.Core": "5.2.9"
         },
         "runtime": {
           "GanEdenComex.Service.dll": {}
+        }
+      },
+      "EntityFrameworkCore.EncryptColumn/6.0.8": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.1"
+        },
+        "runtime": {
+          "lib/netcoreapp6.0/EntityFrameworkCore.EncryptColumn.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "FluentValidation/11.2.1": {
@@ -1069,11 +1081,17 @@
       },
       "GanEdenComex.Domain/1.0.0": {
         "dependencies": {
+          "EntityFrameworkCore.EncryptColumn": "6.0.8",
           "FluentValidation.AspNetCore": "11.2.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.1"
         },
         "runtime": {
           "GanEdenComex.Domain.dll": {}
+        }
+      },
+      "GanEdenComex.Infra.CrossCutting/1.0.0": {
+        "runtime": {
+          "GanEdenComex.Infra.CrossCutting.dll": {}
         }
       }
     }
@@ -1083,6 +1101,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "EntityFrameworkCore.EncryptColumn/6.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AgnhI+4ZM0lySJKR4cEWvDe/EtGL9nIF3jAMz9XikAyMdbEknDTlj0ksSdLwq7OVXMh/ZsR0IuRHNkcnfXkGzQ==",
+      "path": "entityframeworkcore.encryptcolumn/6.0.8",
+      "hashPath": "entityframeworkcore.encryptcolumn.6.0.8.nupkg.sha512"
     },
     "FluentValidation/11.2.1": {
       "type": "package",
@@ -1827,6 +1852,11 @@
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
     "GanEdenComex.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GanEdenComex.Infra.CrossCutting/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

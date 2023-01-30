@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "LFxSNbntFT4gadliYfrZ/MQKQCrsbux81r5UW6S/bJtyLEd2a1B7zaFeX4H80e/WfGXq0raDv1n9RVFPC27vZg==",
+  "dgSpecHash": "TRdVUUW/J4V61T8BhlzupNE6w4fAofDiwW06h/Re0Rzl4zT6Uh6P2bw7cIZBuPXzdBmZmnSm1gqscedY/7Zdjw==",
   "success": true,
   "projectFilePath": "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Application\\GanEdenComex.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\paulo\\.nuget\\packages\\entityframeworkcore.encryptcolumn\\6.0.8\\entityframeworkcore.encryptcolumn.6.0.8.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.1\\fluentvalidation.dependencyinjectionextensions.11.2.1.nupkg.sha512",

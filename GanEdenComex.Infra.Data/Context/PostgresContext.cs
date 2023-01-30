@@ -1,4 +1,7 @@
-﻿using GanEdenComex.Domain.Entities;
+﻿using EntityFrameworkCore.EncryptColumn.Extension;
+using EntityFrameworkCore.EncryptColumn.Interfaces;
+using EntityFrameworkCore.EncryptColumn.Util;
+using GanEdenComex.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,9 +14,10 @@ namespace GanEdenComex.Infra.Data.Context
 {
     public class PostgresContext : DbContext
     {
+        private readonly IEncryptionProvider _provider;
         public PostgresContext(DbContextOptions<PostgresContext> options) : base(options)
         {
-
+            this._provider = new GenerateEncryptionProvider("example_encrypt_key");
         }
 
         public virtual DbSet<User> Users { get; set; }
@@ -26,6 +30,7 @@ namespace GanEdenComex.Infra.Data.Context
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.UseEncryption(this._provider);
             modelBuilder.Entity<User>();
             modelBuilder.Entity<RegistroAcesso>();
             modelBuilder.Entity<Produto>();

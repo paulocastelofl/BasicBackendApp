@@ -7,12 +7,14 @@ using GanEdenComex.Infra.Data.Repository;
 using GanEdenComex.Service.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -23,6 +25,7 @@ builder.Services.AddDbContext<PostgresContext>(options =>
 
 builder.Services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
 builder.Services.AddScoped<IBaseService<User>, BaseService<User>>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddScoped<IBaseRepository<Produto>, BaseRepository<Produto>>();
 builder.Services.AddScoped<IBaseService<Produto>, BaseService<Produto>>();

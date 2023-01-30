@@ -1,6 +1,7 @@
 ﻿using GanEdenComex.Domain.DTO;
 using GanEdenComex.Domain.Entities;
 using GanEdenComex.Domain.Interfaces;
+using GanEdenComex.Infra.CrossCutting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,13 @@ namespace GanEdenComex.Service.Services
         }
         public User Login(AuthLoginDTO model)
         {
+            var encryptDecrypt = new EncryptDecrypt();
+
             User? user = _baseRepository.Select().Where(u => u.Email!.ToLower().Equals(model?.Email?.ToLower())).FirstOrDefault();
 
             if (user == null) throw new Exception("Usuário ou Senha inválida", new HttpResponseException(HttpStatusCode.Forbidden));
-            if (!user!.Password!.Equals(model.Password)) throw new Exception("Usuário ou Senha inválida", new HttpResponseException(HttpStatusCode.Forbidden));
+
+            if (!user!.Password!.Equals(encryptDecrypt.EncryptString(model.Password!))) throw new Exception("Usuário ou Senha inválida", new HttpResponseException(HttpStatusCode.Forbidden));
 
             user.Password = string.Empty;
 
