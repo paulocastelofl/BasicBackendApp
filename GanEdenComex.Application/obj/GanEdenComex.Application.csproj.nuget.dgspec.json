@@ -47,6 +47,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
             "Microsoft.AspNetCore.Mvc.Abstractions": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -191,7 +195,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Domain\\GanEdenComex.Domain.csproj": {
+                "projectPath": "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Domain\\GanEdenComex.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -203,6 +211,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.26.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -17,7 +17,7 @@ namespace GanEdenComex.Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult<User> Login([FromBody] AuthLoginDTO model)
+        public ActionResult<dynamic> Login([FromBody] AuthLoginDTO model)
         {
             if(model == null)
                 return NotFound();

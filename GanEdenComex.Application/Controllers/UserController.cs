@@ -1,11 +1,14 @@
 ﻿using GanEdenComex.Domain.Entities;
 using GanEdenComex.Domain.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace GanEdenComex.Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : Controller
     {
 
@@ -71,7 +74,7 @@ namespace GanEdenComex.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return Json(ex.Message);
             }
             
         }

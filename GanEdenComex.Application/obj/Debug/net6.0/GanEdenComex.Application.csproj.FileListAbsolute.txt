@@ -12,6 +12,7 @@ C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\ne
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Humanizer.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\System.Net.Http.Formatting.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
@@ -26,6 +27,12 @@ C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\ne
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Mono.TextTemplating.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Newtonsoft.Json.dll
@@ -36,15 +43,18 @@ C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\ne
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\System.CodeDom.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Domain.dll
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Infra.CrossCutting.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Infra.Data.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Service.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Infra.Data.pdb
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Service.pdb
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Domain.pdb
+C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Infra.CrossCutting.pdb
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\obj\Debug\net6.0\GanEdenComex.Application.csproj.AssemblyReference.cache
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\obj\Debug\net6.0\GanEdenComex.Application.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\obj\Debug\net6.0\GanEdenComex.Application.AssemblyInfoInputs.cache
@@ -66,5 +76,3 @@ C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\obj\Debug\ne
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\obj\Debug\net6.0\GanEdenComex.Application.pdb
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\obj\Debug\net6.0\GanEdenComex.Application.genruntimeconfig.cache
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\obj\Debug\net6.0\ref\GanEdenComex.Application.dll
-C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Infra.CrossCutting.dll
-C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Application\bin\Debug\net6.0\GanEdenComex.Infra.CrossCutting.pdb

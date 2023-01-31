@@ -10,6 +10,6 @@ namespace GanEdenComex.Domain.Interfaces
 {
     public interface IAuthService
     {
-        public User Login(AuthLoginDTO model);
+        public dynamic Login(AuthLoginDTO model);
     }
 }
