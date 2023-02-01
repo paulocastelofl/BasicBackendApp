@@ -11,14 +11,6 @@ namespace GanEdenComex.Application.Controllers
     [Authorize]
     public class UserController : Controller
     {
-
-       /* {
-  "id": 0,
-  "name": "João Almeida",
-  "email": "joal2022@gamil.com",
-  "password": "Jo#2022"
-}*/
-
         private IBaseService<User> _baseUserService;
         private IUserService _userService;
 

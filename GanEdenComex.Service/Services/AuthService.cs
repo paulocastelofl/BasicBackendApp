@@ -36,8 +36,8 @@ namespace GanEdenComex.Service.Services
 
             if (!user!.Password!.Equals(encryptDecrypt.EncryptString(model.Password!))) throw new Exception("Usuário ou Senha inválida", new HttpResponseException(HttpStatusCode.Forbidden));
 
-       
-            var token = GenerateToken(user);
+            var mangerJwtService = new MangerJwtService();
+            var token = mangerJwtService.GenerateToken(user);
 
             user.Password = string.Empty;
 
@@ -50,27 +50,5 @@ namespace GanEdenComex.Service.Services
             };
         }
 
-        private string GenerateToken(User user)
-        {
-    
-
-            List<Claim> claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.Name!.ToString())
-            };
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("TokenSecret")));
-
-            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
-
-            var token = new JwtSecurityToken(
-                claims: claims,
-                expires: DateTime.Now.AddDays(1),
-                signingCredentials: cred
-            );
-            
-            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-            return jwt;
-        }
     }
 }

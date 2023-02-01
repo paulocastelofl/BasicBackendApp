@@ -1,11 +1,13 @@
 ﻿using GanEdenComex.Domain.Entities;
 using GanEdenComex.Domain.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GanEdenComex.Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProdutoController : Controller
     {
         private IBaseService<Produto> _baseUserService;

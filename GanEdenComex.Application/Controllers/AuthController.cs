@@ -1,6 +1,7 @@
 ﻿using GanEdenComex.Domain.DTO;
 using GanEdenComex.Domain.Entities;
 using GanEdenComex.Domain.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GanEdenComex.Application.Controllers
@@ -17,6 +18,7 @@ namespace GanEdenComex.Application.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult<dynamic> Login([FromBody] AuthLoginDTO model)
         {
             if(model == null)

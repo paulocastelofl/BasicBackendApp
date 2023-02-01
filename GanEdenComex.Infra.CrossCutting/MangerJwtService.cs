@@ -23,7 +23,9 @@ namespace GanEdenComex.Infra.CrossCutting
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.Name!.ToString())
+                    new Claim(ClaimTypes.Name, user.Name!.ToString()),
+                    new Claim(ClaimTypes.Email, user.Email?.ToString()!),
+                    new Claim(ClaimTypes.Role,  string.Empty),
                 }),
 
                 Expires = DateTime.UtcNow.AddHours(1),
