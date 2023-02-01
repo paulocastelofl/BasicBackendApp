@@ -10,3 +10,15 @@ C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Domain\obj\Debug\net6.0\
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Domain\obj\Debug\net6.0\refint\GanEdenComex.Domain.dll
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Domain\obj\Debug\net6.0\GanEdenComex.Domain.pdb
 C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Domain\obj\Debug\net6.0\ref\GanEdenComex.Domain.dll
+C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Domain\bin\Debug\net6.0\GanEdenComex.Domain.deps.json
+C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Domain\bin\Debug\net6.0\GanEdenComex.Domain.dll
+C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Domain\bin\Debug\net6.0\GanEdenComex.Domain.pdb
+C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Domain\obj\Debug\net6.0\GanEdenComex.Domain.csproj.AssemblyReference.cache
+C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Domain\obj\Debug\net6.0\GanEdenComex.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Domain\obj\Debug\net6.0\GanEdenComex.Domain.AssemblyInfoInputs.cache
+C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Domain\obj\Debug\net6.0\GanEdenComex.Domain.AssemblyInfo.cs
+C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Domain\obj\Debug\net6.0\GanEdenComex.Domain.csproj.CoreCompileInputs.cache
+C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Domain\obj\Debug\net6.0\GanEdenComex.Domain.dll
+C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Domain\obj\Debug\net6.0\refint\GanEdenComex.Domain.dll
+C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Domain\obj\Debug\net6.0\GanEdenComex.Domain.pdb
+C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Domain\obj\Debug\net6.0\ref\GanEdenComex.Domain.dll

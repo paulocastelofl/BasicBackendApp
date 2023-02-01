@@ -1,5 +1,6 @@
 
 
+using GanEdenComex.Application.Middlewares;
 using GanEdenComex.Domain.Entities;
 using GanEdenComex.Domain.Interfaces;
 using GanEdenComex.Infra.Data.Context;
@@ -109,11 +110,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
+
+app.UseCors(x => x
+               .AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod());
 
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.ConfigureExtensionHandler();
 
 app.MapControllers();
 

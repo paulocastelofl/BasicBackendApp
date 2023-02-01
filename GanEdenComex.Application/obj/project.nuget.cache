@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A2rY/W5P/yj9zQXLtS6MNM94h1eIqfWNDwd1oC/XqiILx8GNRviw+BsiW/irST/S3baelIG48HXAhgVZu3lODA==",
+  "dgSpecHash": "vVGQOpRhxGR/g1akRQfTMQHpjKiAGldRuLFZ3hLUOywCC3+1H5IaxGXjbdLaaifAxB3o9cBG8fIyE9xCGt7Ntw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Application\\GanEdenComex.Application.csproj",
+  "projectFilePath": "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Application\\GanEdenComex.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\paulo\\.nuget\\packages\\entityframeworkcore.encryptcolumn\\6.0.8\\entityframeworkcore.encryptcolumn.6.0.8.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",

@@ -7401,11 +7401,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Application\\GanEdenComex.Application.csproj",
+      "projectUniqueName": "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Application\\GanEdenComex.Application.csproj",
       "projectName": "GanEdenComex.Application",
-      "projectPath": "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Application\\GanEdenComex.Application.csproj",
+      "projectPath": "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Application\\GanEdenComex.Application.csproj",
       "packagesPath": "C:\\Users\\paulo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Application\\obj\\",
+      "outputPath": "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\paulo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7422,11 +7422,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Infra.Data\\GanEdenComex.Infra.Data.csproj": {
-              "projectPath": "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Infra.Data\\GanEdenComex.Infra.Data.csproj"
+            "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Infra.Data\\GanEdenComex.Infra.Data.csproj": {
+              "projectPath": "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Infra.Data\\GanEdenComex.Infra.Data.csproj"
             },
-            "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Service\\GanEdenComex.Service.csproj": {
-              "projectPath": "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Service\\GanEdenComex.Service.csproj"
+            "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Service\\GanEdenComex.Service.csproj": {
+              "projectPath": "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Service\\GanEdenComex.Service.csproj"
             }
           }
         }

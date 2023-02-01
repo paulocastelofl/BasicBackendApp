@@ -24,14 +24,9 @@ namespace GanEdenComex.Application.Controllers
             if(model == null)
                 return NotFound();
 
-            try
-            {
-                return _authService.Login(model);
-            }
-            catch (Exception ex)
-            {
-                return Json(ex.Message);
-            }
+           
+            return _authService.Login(model);
+           
 
             
         }

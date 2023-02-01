@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GanEdenComex.Service
-build_property.ProjectDir = C:\Users\paulo\source\repos\APIGandenComex\GanEdenComex.Service\
+build_property.ProjectDir = C:\workspace\Projects-Ganeden\ganeden-comex-backend\GanEdenComex.Service\

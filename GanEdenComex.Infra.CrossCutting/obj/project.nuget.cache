@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6he1HuiGBrZbwQeqXQLK2CQcX9c+Qe08HFGb7c/qgR9+4mlL7o9NL2bnLNVDXDicr6fs1m/FFsJ/bjIVuMIOBg==",
+  "dgSpecHash": "7Bjr3NbcYI883O/SonB6D5GoLomNqDLjEnY/sw+xbO1yBFUH7W721BIpZ0gJzhqEaAYVRQuVo98qvjlQUWbICA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\paulo\\source\\repos\\APIGandenComex\\GanEdenComex.Infra.CrossCutting\\GanEdenComex.Infra.CrossCutting.csproj",
+  "projectFilePath": "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Infra.CrossCutting\\GanEdenComex.Infra.CrossCutting.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\paulo\\.nuget\\packages\\entityframeworkcore.encryptcolumn\\6.0.8\\entityframeworkcore.encryptcolumn.6.0.8.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",
