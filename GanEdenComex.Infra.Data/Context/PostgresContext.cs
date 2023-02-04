@@ -24,6 +24,7 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<RegistroAcesso> RegistroAcesso { get; set; }
         public virtual DbSet<Produto> Produto { get; set; }
         public virtual DbSet<Fabricante> Fabricante { get; set; }
+        public virtual DbSet<Empresa> Empresa {get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,6 +36,7 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<RegistroAcesso>();
             modelBuilder.Entity<Produto>();
             modelBuilder.Entity<Fabricante>();
+            modelBuilder.Entity<Empresa>();
         }
 
 

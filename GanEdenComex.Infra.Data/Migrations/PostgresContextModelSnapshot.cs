@@ -22,6 +22,55 @@ namespace GanEdenComex.Infra.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.Empresa", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Bairro")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CEP")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CNPJ")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Cidade")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Complemento")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Estado")
+                        .HasColumnType("text");
+
+                    b.Property<string>("InscricaoMunicipal")
+                        .HasColumnType("text");
+
+                    b.Property<string>("InscricaoSuframa")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Logradouro")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NomeFantasia")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Numero")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RazaoSocial")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Empresa");
+                });
+
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Fabricante", b =>
                 {
                     b.Property<int>("Id")
