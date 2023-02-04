@@ -12,7 +12,7 @@ namespace GanEdenComex.Domain.Entities
         public string? Name { get; set; }
 
         public string? Email { get; set; }
-        [JsonIgnore]
+        //[JsonIgnore]
         public string? Password { get; set; }
     }
 }

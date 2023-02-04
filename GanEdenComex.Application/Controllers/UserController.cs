@@ -8,7 +8,7 @@ namespace GanEdenComex.Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [AllowAnonymous]
     public class UserController : Controller
     {
         private IBaseService<User> _baseUserService;
@@ -24,6 +24,7 @@ namespace GanEdenComex.Application.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult Create([FromBody] User user)
         {
             if (user == null)
