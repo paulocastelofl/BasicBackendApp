@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GanEdenComex.Domain.Entities
 {
-    public class Empresa: BaseEntity
+    public class Fornecedor: BaseEntity
     {
         public string? CNPJ { get; set; }
         public string? RazaoSocial { get; set; }
@@ -19,10 +19,8 @@ namespace GanEdenComex.Domain.Entities
         public string? CEP {get; set; }
         public string? Cidade {get; set; }
         public string? Estado {get; set; }
-        public string? InscricaoMunicipal {get; set;}
-        public string? InscricaoSuframa {get; set; }
-        [ForeignKey("Pais")]
-        public int? IdPais { get; set; }
-        public virtual Pais? Pais { get; set; }
+        [ForeignKey("Empresa")]
+        public int? IdEmpresa { get; set; }
+        public virtual Empresa? Empresa { get; set; }
     }
 }

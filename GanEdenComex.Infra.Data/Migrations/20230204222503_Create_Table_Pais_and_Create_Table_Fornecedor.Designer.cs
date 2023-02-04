@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230204222503_Create_Table_Pais_and_Create_Table_Fornecedor")]
+    partial class CreateTablePaisandCreateTableFornecedor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,9 +51,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Property<string>("Estado")
                         .HasColumnType("text");
 
-                    b.Property<int?>("IdPais")
-                        .HasColumnType("integer");
-
                     b.Property<string>("InscricaoMunicipal")
                         .HasColumnType("text");
 
@@ -70,8 +70,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdPais");
 
                     b.ToTable("Empresa");
                 });
@@ -99,9 +97,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Property<string>("Estado")
                         .HasColumnType("text");
 
-                    b.Property<int?>("IdPais")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Logradouro")
                         .HasColumnType("text");
 
@@ -115,8 +110,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdPais");
 
                     b.ToTable("Fabricante");
                 });
@@ -299,24 +292,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.Empresa", b =>
-                {
-                    b.HasOne("GanEdenComex.Domain.Entities.Pais", "Pais")
-                        .WithMany()
-                        .HasForeignKey("IdPais");
-
-                    b.Navigation("Pais");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.Fabricante", b =>
-                {
-                    b.HasOne("GanEdenComex.Domain.Entities.Pais", "Pais")
-                        .WithMany()
-                        .HasForeignKey("IdPais");
-
-                    b.Navigation("Pais");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Fornecedor", b =>

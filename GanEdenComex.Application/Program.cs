@@ -98,6 +98,9 @@ builder.Services.AddScoped<IBaseService<Produto>, BaseService<Produto>>();
 builder.Services.AddScoped<IBaseRepository<Fabricante>, BaseRepository<Fabricante>>();
 builder.Services.AddScoped<IBaseService<Fabricante>, BaseService<Fabricante>>();
 
+builder.Services.AddScoped<IBaseRepository<Empresa>, BaseRepository<Empresa>>();
+builder.Services.AddScoped<IBaseService<Empresa>, BaseService<Empresa>>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 
