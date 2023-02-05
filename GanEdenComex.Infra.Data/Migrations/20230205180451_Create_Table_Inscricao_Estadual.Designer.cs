@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230205180451_Create_Table_Inscricao_Estadual")]
+    partial class CreateTableInscricaoEstadual
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,7 +172,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.ToTable("Fornecedor");
                 });
 
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.InscricaoEstadual", b =>
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.Inscricao_Estadual", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -187,7 +190,7 @@ namespace GanEdenComex.Infra.Data.Migrations
 
                     b.HasIndex("IdEmpresa");
 
-                    b.ToTable("InscricaoEstadual");
+                    b.ToTable("Inscricao_Estadual");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.NCM", b =>
@@ -300,42 +303,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.ToTable("RegistroAcesso");
                 });
 
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.RepresentanteLegal", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CNPJ")
-                        .HasColumnType("text");
-
-                    b.Property<string>("CPF")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("IdEmpresa")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("MarinhaMercante")
-                        .HasColumnType("text");
-
-                    b.Property<string>("RegistroRepresentante")
-                        .HasColumnType("text");
-
-                    b.Property<string>("SenhaSISCOMEX")
-                        .HasColumnType("text");
-
-                    b.Property<string>("SenhaSUFRAMA")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdEmpresa");
-
-                    b.ToTable("RepresentanteLegal");
-                });
-
             modelBuilder.Entity("GanEdenComex.Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -385,7 +352,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Navigation("Empresa");
                 });
 
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.InscricaoEstadual", b =>
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.Inscricao_Estadual", b =>
                 {
                     b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
                         .WithMany()
@@ -410,15 +377,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasForeignKey("UserId");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.RepresentanteLegal", b =>
-                {
-                    b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
-                        .WithMany()
-                        .HasForeignKey("IdEmpresa");
-
-                    b.Navigation("Empresa");
                 });
 #pragma warning restore 612, 618
         }

@@ -110,6 +110,12 @@ builder.Services.AddScoped<IBaseService<Pais>, BaseService<Pais>>();
 builder.Services.AddScoped<IBaseRepository<Fornecedor>, BaseRepository<Fornecedor>>();
 builder.Services.AddScoped<IBaseService<Fornecedor>, BaseService<Fornecedor>>();
 
+builder.Services.AddScoped<IBaseRepository<InscricaoEstadual>, BaseRepository<InscricaoEstadual>>();
+builder.Services.AddScoped<IBaseService<InscricaoEstadual>, BaseService<InscricaoEstadual>>();
+
+builder.Services.AddScoped<IBaseRepository<RepresentanteLegal>, BaseRepository<RepresentanteLegal>>();
+builder.Services.AddScoped<IBaseService<RepresentanteLegal>, BaseService<RepresentanteLegal>>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 
