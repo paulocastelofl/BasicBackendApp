@@ -6592,19 +6592,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\paulo\\.nuget\\packages\\": {}
+    "C:\\Users\\hm-ca\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Service\\GanEdenComex.Service.csproj",
+      "projectUniqueName": "C:\\Users\\hm-ca\\Documents\\Projetos\\Ganedentech\\Comex\\Backend\\ganeden-comex-backend\\GanEdenComex.Service\\GanEdenComex.Service.csproj",
       "projectName": "GanEdenComex.Service",
-      "projectPath": "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Service\\GanEdenComex.Service.csproj",
-      "packagesPath": "C:\\Users\\paulo\\.nuget\\packages\\",
-      "outputPath": "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Service\\obj\\",
+      "projectPath": "C:\\Users\\hm-ca\\Documents\\Projetos\\Ganedentech\\Comex\\Backend\\ganeden-comex-backend\\GanEdenComex.Service\\GanEdenComex.Service.csproj",
+      "packagesPath": "C:\\Users\\hm-ca\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hm-ca\\Documents\\Projetos\\Ganedentech\\Comex\\Backend\\ganeden-comex-backend\\GanEdenComex.Service\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\paulo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hm-ca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6612,17 +6617,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Domain\\GanEdenComex.Domain.csproj": {
-              "projectPath": "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Domain\\GanEdenComex.Domain.csproj"
+            "C:\\Users\\hm-ca\\Documents\\Projetos\\Ganedentech\\Comex\\Backend\\ganeden-comex-backend\\GanEdenComex.Domain\\GanEdenComex.Domain.csproj": {
+              "projectPath": "C:\\Users\\hm-ca\\Documents\\Projetos\\Ganedentech\\Comex\\Backend\\ganeden-comex-backend\\GanEdenComex.Domain\\GanEdenComex.Domain.csproj"
             },
-            "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Infra.CrossCutting\\GanEdenComex.Infra.CrossCutting.csproj": {
-              "projectPath": "C:\\workspace\\Projects-Ganeden\\ganeden-comex-backend\\GanEdenComex.Infra.CrossCutting\\GanEdenComex.Infra.CrossCutting.csproj"
+            "C:\\Users\\hm-ca\\Documents\\Projetos\\Ganedentech\\Comex\\Backend\\ganeden-comex-backend\\GanEdenComex.Infra.CrossCutting\\GanEdenComex.Infra.CrossCutting.csproj": {
+              "projectPath": "C:\\Users\\hm-ca\\Documents\\Projetos\\Ganedentech\\Comex\\Backend\\ganeden-comex-backend\\GanEdenComex.Infra.CrossCutting\\GanEdenComex.Infra.CrossCutting.csproj"
             }
           }
         }
@@ -6653,12 +6659,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.13, 6.0.13]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.13, 6.0.13]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.13, 6.0.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   },

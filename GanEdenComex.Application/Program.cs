@@ -98,6 +98,24 @@ builder.Services.AddScoped<IBaseService<Produto>, BaseService<Produto>>();
 builder.Services.AddScoped<IBaseRepository<Fabricante>, BaseRepository<Fabricante>>();
 builder.Services.AddScoped<IBaseService<Fabricante>, BaseService<Fabricante>>();
 
+builder.Services.AddScoped<IBaseRepository<Empresa>, BaseRepository<Empresa>>();
+builder.Services.AddScoped<IBaseService<Empresa>, BaseService<Empresa>>();
+
+builder.Services.AddScoped<IBaseRepository<NCM>, BaseRepository<NCM>>();
+builder.Services.AddScoped<IBaseService<NCM>, BaseService<NCM>>();
+
+builder.Services.AddScoped<IBaseRepository<Pais>, BaseRepository<Pais>>();
+builder.Services.AddScoped<IBaseService<Pais>, BaseService<Pais>>();
+
+builder.Services.AddScoped<IBaseRepository<Fornecedor>, BaseRepository<Fornecedor>>();
+builder.Services.AddScoped<IBaseService<Fornecedor>, BaseService<Fornecedor>>();
+
+builder.Services.AddScoped<IBaseRepository<InscricaoEstadual>, BaseRepository<InscricaoEstadual>>();
+builder.Services.AddScoped<IBaseService<InscricaoEstadual>, BaseService<InscricaoEstadual>>();
+
+builder.Services.AddScoped<IBaseRepository<RepresentanteLegal>, BaseRepository<RepresentanteLegal>>();
+builder.Services.AddScoped<IBaseService<RepresentanteLegal>, BaseService<RepresentanteLegal>>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 
