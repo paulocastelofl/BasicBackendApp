@@ -29,7 +29,8 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<NCM> NCM {get; set; }
         public virtual DbSet<Fornecedor> Fornecedor {get; set; }
         public virtual DbSet<InscricaoEstadual> InscricaoEstadual {get; set; }
-         public virtual DbSet<RepresentanteLegal> RepresentanteLegal {get; set; }
+        public virtual DbSet<RepresentanteLegal> RepresentanteLegal {get; set; }
+        public virtual DbSet<CertificadoDigital> CertificadoDigital {get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -46,6 +47,7 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<Fornecedor>();
             modelBuilder.Entity<InscricaoEstadual>();
             modelBuilder.Entity<RepresentanteLegal>();
+            modelBuilder.Entity<CertificadoDigital>();
         }
 
 

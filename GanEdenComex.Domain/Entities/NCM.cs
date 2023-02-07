@@ -12,8 +12,8 @@ namespace GanEdenComex.Domain.Entities
         public string? Codigo_NCM { get; set; }
         public string? Descricao { get; set; }
         public string? Descricao_Concatenada { get; set; }
-        public DateOnly? Data_Inicio { get; set; }
-        public DateOnly? Data_Fim {get; set; }
+        public DateTime? Data_Inicio { get; set; }
+        public DateTime? Data_Fim {get; set; }
         public string? Ato_Legal {get; set; }
         public string? Numero {get; set; }
         public string? Ano {get; set; }

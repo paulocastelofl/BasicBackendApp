@@ -18,5 +18,8 @@ namespace GanEdenComex.Domain.Entities
         [ForeignKey("Empresa")]
         public int? IdEmpresa { get; set; }
         public virtual Empresa? Empresa { get; set; }
+        [ForeignKey("CertificadoDigital")]
+        public int? IdCertificadoDigital {get; set; }
+        public virtual CertificadoDigital? CertificadoDigital {get; set; }
     }
 }

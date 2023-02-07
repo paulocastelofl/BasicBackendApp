@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230207012929_Create_Table_Certificado_Digital")]
+    partial class CreateTableCertificadoDigital
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -279,9 +282,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Property<int?>("IdFabricante")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("IdNCM")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Nome_Produto")
                         .HasColumnType("text");
 
@@ -297,8 +297,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("IdFabricante");
-
-                    b.HasIndex("IdNCM");
 
                     b.ToTable("Produto");
                 });
@@ -432,13 +430,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .WithMany()
                         .HasForeignKey("IdFabricante");
 
-                    b.HasOne("GanEdenComex.Domain.Entities.NCM", "NCM")
-                        .WithMany()
-                        .HasForeignKey("IdNCM");
-
                     b.Navigation("Fabricante");
-
-                    b.Navigation("NCM");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.RegistroAcesso", b =>
