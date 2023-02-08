@@ -24,5 +24,21 @@ namespace GanEdenComex.Domain.Entities
         [ForeignKey("Pais")]
         public int? IdPais { get; set; }
         public virtual Pais? Pais { get; set; }
+        public bool? AprovaRegistroDI {get; set; }
+        public string? AtividadeEconomica {get; set; }
+        public string? CNAE {get; set; }
+        public string? NumeroDeCadastroNoMA {get; set; }
+        //public string? LimiteDeValorFOB {get; set; }
+        public string? DespachantePadrao {get; set; }
+        public int? PrazoDiasCEMercanteCritico {get; set; }
+        public string? CentroDeCusto {get; set; }
+        public bool? CadastroDeItens {get; set; }
+        public bool? AtualizarItens {get; set; }
+        public bool? CadastroDeFornecedoresFabricantes {get; set; }
+        public bool? AtualizarFornecedoresFabricantes {get; set; }
+        public bool? ControlarDemurrage {get; set; }
+        public bool? ControlarCEMercantes {get; set; }
+        public bool? ControlarCambio {get; set; }
+        public bool? Segurado {get; set; }
     }
 }
