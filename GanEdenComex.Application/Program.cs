@@ -116,6 +116,12 @@ builder.Services.AddScoped<IBaseService<InscricaoEstadual>, BaseService<Inscrica
 builder.Services.AddScoped<IBaseRepository<RepresentanteLegal>, BaseRepository<RepresentanteLegal>>();
 builder.Services.AddScoped<IBaseService<RepresentanteLegal>, BaseService<RepresentanteLegal>>();
 
+builder.Services.AddScoped<IBaseRepository<CertificadoDigital>, BaseRepository<CertificadoDigital>>();
+builder.Services.AddScoped<IBaseService<CertificadoDigital>, BaseService<CertificadoDigital>>();
+
+builder.Services.AddScoped<IBaseRepository<Item>, BaseRepository<Item>>();
+builder.Services.AddScoped<IBaseService<Item>, BaseService<Item>>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 
