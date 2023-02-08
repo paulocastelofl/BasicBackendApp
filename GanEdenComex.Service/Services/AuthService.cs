@@ -46,6 +46,7 @@ namespace GanEdenComex.Service.Services
                 Id = user.Id,
                 Name = user.Name,
                 Email = user.Email,
+                IdEmpresa = user.IdEmpresa,
                 Token = token
             };
         }

@@ -20,6 +20,9 @@ namespace GanEdenComex.Domain.Entities
         public string? Cidade {get; set; }
         public string? Estado {get; set; }
         public string? InscricaoMunicipal {get; set;}
+        public bool? Despachante { get; set; }
+        public bool? Importador { get; set; }
+        public bool? Exportador { get; set; }
         public string? InscricaoSuframa {get; set; }
         [ForeignKey("Pais")]
         public int? IdPais { get; set; }

@@ -72,6 +72,20 @@ namespace GanEdenComex.Application.Controllers
             
         }
 
+        [HttpGet("GetByEmpresa/{id}")]
+        public ActionResult<IList<User>> GetByEmpresa(int id)
+        {
+            try
+            {
+                return _userService.GetByEmpresa(id).ToList();
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
+
+        }
+
         [HttpGet("{id}")]
         public ActionResult<User> Get(int id)
         {

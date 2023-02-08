@@ -10,5 +10,7 @@ namespace GanEdenComex.Domain.Interfaces
     public interface IUserService
     {
         User Add(User obj);
+
+        IList<User> GetByEmpresa(int id);
     }
 }

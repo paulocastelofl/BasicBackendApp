@@ -35,7 +35,9 @@ namespace GanEdenComex.Service.Services
             };
         }
 
-        
-
+        public IList<User> GetByEmpresa(int id)
+        {
+            return _baseRepository.Select().Where(x => x.IdEmpresa == id).ToList();
+        }
     }
 }

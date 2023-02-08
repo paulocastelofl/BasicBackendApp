@@ -10,6 +10,6 @@ namespace GanEdenComex.Domain.Entities
     public class Pais: BaseEntity
     {
         public string? Codigo_Pais { get; set; }
-        public int? Nome_Pais { get; set; }
+        public string? Nome_Pais { get; set; }
     }
 }

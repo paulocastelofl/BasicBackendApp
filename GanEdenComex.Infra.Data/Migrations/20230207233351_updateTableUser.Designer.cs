@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230207233351_updateTableUser")]
+    partial class updateTableUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,20 +70,11 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Property<string>("Complemento")
                         .HasColumnType("text");
 
-                    b.Property<bool?>("Despachante")
-                        .HasColumnType("boolean");
-
                     b.Property<string>("Estado")
                         .HasColumnType("text");
 
-                    b.Property<bool?>("Exportador")
-                        .HasColumnType("boolean");
-
                     b.Property<int?>("IdPais")
                         .HasColumnType("integer");
-
-                    b.Property<bool?>("Importador")
-                        .HasColumnType("boolean");
 
                     b.Property<string>("InscricaoMunicipal")
                         .HasColumnType("text");
@@ -397,6 +391,9 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
+                    b.Property<int?>("PaisId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Password")
                         .HasColumnType("text");
 
@@ -405,7 +402,7 @@ namespace GanEdenComex.Infra.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdEmpresa");
+                    b.HasIndex("PaisId");
 
                     b.ToTable("Users");
                 });
@@ -487,11 +484,11 @@ namespace GanEdenComex.Infra.Data.Migrations
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.User", b =>
                 {
-                    b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
+                    b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Pais")
                         .WithMany()
-                        .HasForeignKey("IdEmpresa");
+                        .HasForeignKey("PaisId");
 
-                    b.Navigation("Empresa");
+                    b.Navigation("Pais");
                 });
 #pragma warning restore 612, 618
         }
