@@ -102,6 +102,8 @@ builder.Services.AddScoped<IBaseService<Fabricante>, BaseService<Fabricante>>();
 
 builder.Services.AddScoped<IBaseRepository<Empresa>, BaseRepository<Empresa>>();
 builder.Services.AddScoped<IBaseService<Empresa>, BaseService<Empresa>>();
+builder.Services.AddScoped<IEmpresaService, EmpresaService>();
+
 
 builder.Services.AddScoped<IBaseRepository<NCM>, BaseRepository<NCM>>();
 builder.Services.AddScoped<IBaseService<NCM>, BaseService<NCM>>();

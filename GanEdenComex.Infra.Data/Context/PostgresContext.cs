@@ -48,7 +48,11 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<Produto>();
             modelBuilder.Entity<Fabricante>();
             modelBuilder.Entity<Pais>();
-            modelBuilder.Entity<Empresa>();
+            modelBuilder.Entity<Empresa>()
+            .HasMany(b => b.Associados)
+            .WithOne().HasForeignKey(b => b.IdEmpresa)
+            ;
+
             modelBuilder.Entity<NCM>();
             modelBuilder.Entity<Fornecedor>();
             modelBuilder.Entity<InscricaoEstadual>();

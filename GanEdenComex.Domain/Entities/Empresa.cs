@@ -43,5 +43,9 @@ namespace GanEdenComex.Domain.Entities
         public bool? ControlarCEMercantes {get; set; }
         public bool? ControlarCambio {get; set; }
         public bool? Segurado {get; set; }
+        [ForeignKey("Empresa")]
+        public int? IdEmpresa { get; set; }
+        public virtual ICollection<Empresa>? Associados { get; set; }
+        public bool status { get; set; } = false;
     }
 }

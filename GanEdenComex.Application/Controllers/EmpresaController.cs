@@ -1,5 +1,6 @@
 ﻿using GanEdenComex.Domain.Entities;
 using GanEdenComex.Domain.Interfaces;
+using GanEdenComex.Service.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +12,13 @@ namespace GanEdenComex.Application.Controllers
     public class EmpresaController : Controller
     {
         private IBaseService<Empresa> _baseUserService;
+        private IEmpresaService _empresaService;
 
-        public EmpresaController(IBaseService<Empresa> baseUserService)
+
+        public EmpresaController(IBaseService<Empresa> baseUserService,  IEmpresaService empresaService)
         {
             _baseUserService = baseUserService;
+            _empresaService = empresaService;
         }
 
         [HttpPost]
@@ -90,6 +94,35 @@ namespace GanEdenComex.Application.Controllers
             {
                 _baseUserService.Delete(id);
                 return Json(new { success = true, msg = "successfully deleted" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
+        [HttpGet("GetByEmpresa/{id}")]
+        public ActionResult<IList<Empresa>> GetByEmpresa(int id)
+        {
+            try
+            {
+                return _empresaService.GetByEmpresa(id).ToList();
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
+
+        }
+
+        [HttpPut("UpdateStatus/{id}/{status}")]
+        public IActionResult UpdateStatus(int id, bool status)
+        {
+
+            try
+            {
+                return Ok(_empresaService.UpdateStatus(id, status));
             }
             catch (Exception ex)
             {

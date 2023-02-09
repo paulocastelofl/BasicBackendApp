@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GanEdenComex.Domain\GanEdenComex.Domain.csproj" />
     <ProjectReference Include="..\GanEdenComex.Infra.CrossCutting\GanEdenComex.Infra.CrossCutting.csproj" />
+    <ProjectReference Include="..\GanEdenComex.Infra.Data\GanEdenComex.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>
