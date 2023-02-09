@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,7 @@ namespace GanEdenComex.Infra.Data.Context
         public PostgresContext(DbContextOptions<PostgresContext> options) : base(options)
         {
             this._provider = new GenerateEncryptionProvider("example_encrypt_key");
+
         }
 
         public virtual DbSet<User> Users { get; set; }
@@ -34,9 +36,11 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<Item> Item {get; set; }
 
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
 
             modelBuilder.UseEncryption(this._provider);
             modelBuilder.Entity<User>();
@@ -51,6 +55,9 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<RepresentanteLegal>();
             modelBuilder.Entity<CertificadoDigital>();
             modelBuilder.Entity<Item>();
+
+
+            
         }
 
 

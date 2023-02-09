@@ -84,8 +84,10 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddDbContext<PostgresContext>(options =>
-{
-    options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
+{   
+    options
+    .UseLazyLoadingProxies()
+    .UseNpgsql(builder.Configuration.GetConnectionString("Default"));
 });
 
 builder.Services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
