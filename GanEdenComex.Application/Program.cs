@@ -126,6 +126,9 @@ builder.Services.AddScoped<IBaseService<CertificadoDigital>, BaseService<Certifi
 builder.Services.AddScoped<IBaseRepository<Item>, BaseRepository<Item>>();
 builder.Services.AddScoped<IBaseService<Item>, BaseService<Item>>();
 
+builder.Services.AddScoped<IBaseRepository<Transportador>, BaseRepository<Transportador>>();
+builder.Services.AddScoped<IBaseService<Transportador>, BaseService<Transportador>>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 
