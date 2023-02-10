@@ -35,6 +35,7 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<CertificadoDigital> CertificadoDigital {get; set; }
         public virtual DbSet<Item> Item {get; set; }
         public virtual DbSet<Transportador> Transportador {get; set; }
+        public virtual DbSet<Agente> Agente {get; set; }
 
 
 
@@ -61,6 +62,7 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<CertificadoDigital>();
             modelBuilder.Entity<Item>();
             modelBuilder.Entity<Transportador>();
+            modelBuilder.Entity<Agente>();
             
         }
 
