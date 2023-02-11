@@ -132,6 +132,9 @@ builder.Services.AddScoped<IBaseService<Transportador>, BaseService<Transportado
 builder.Services.AddScoped<IBaseRepository<Agente>, BaseRepository<Agente>>();
 builder.Services.AddScoped<IBaseService<Agente>, BaseService<Agente>>();
 
+builder.Services.AddScoped<IBaseRepository<AtoLegal>, BaseRepository<AtoLegal>>();
+builder.Services.AddScoped<IBaseService<AtoLegal>, BaseService<AtoLegal>>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 

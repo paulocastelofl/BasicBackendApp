@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230211152928_Alter_Table_Item_and_Empresa")]
+    partial class AlterTableItemandEmpresa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,57 +85,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.HasIndex("IdPais");
 
                     b.ToTable("Agente");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.AtoLegal", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<bool?>("Ativo")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Descricao")
-                        .HasColumnType("text");
-
-                    b.Property<string>("FundamentoII")
-                        .HasColumnType("text");
-
-                    b.Property<string>("FundamentoPISCOFINS")
-                        .HasColumnType("text");
-
-                    b.Property<bool?>("Geral")
-                        .HasColumnType("boolean");
-
-                    b.Property<int?>("IdEmpresa")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("Numero")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Orgao")
-                        .HasColumnType("text");
-
-                    b.Property<string>("RegimeIPI")
-                        .HasColumnType("text");
-
-                    b.Property<string>("RegimePISCOFINS")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Tipo")
-                        .HasColumnType("text");
-
-                    b.Property<bool?>("VincularProcessos")
-                        .HasColumnType("boolean");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdEmpresa");
-
-                    b.ToTable("AtoLegal");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.CertificadoDigital", b =>
@@ -768,15 +720,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Navigation("Empresa");
 
                     b.Navigation("Pais");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.AtoLegal", b =>
-                {
-                    b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
-                        .WithMany()
-                        .HasForeignKey("IdEmpresa");
-
-                    b.Navigation("Empresa");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Empresa", b =>

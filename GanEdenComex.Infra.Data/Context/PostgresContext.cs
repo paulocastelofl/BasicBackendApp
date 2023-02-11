@@ -26,16 +26,17 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<RegistroAcesso> RegistroAcesso { get; set; }
         public virtual DbSet<Produto> Produto { get; set; }
         public virtual DbSet<Fabricante> Fabricante { get; set; }
-        public virtual DbSet<Pais> Pais {get; set; }
-        public virtual DbSet<Empresa> Empresa {get; set; }
-        public virtual DbSet<NCM> NCM {get; set; }
-        public virtual DbSet<Fornecedor> Fornecedor {get; set; }
-        public virtual DbSet<InscricaoEstadual> InscricaoEstadual {get; set; }
-        public virtual DbSet<RepresentanteLegal> RepresentanteLegal {get; set; }
-        public virtual DbSet<CertificadoDigital> CertificadoDigital {get; set; }
-        public virtual DbSet<Item> Item {get; set; }
-        public virtual DbSet<Transportador> Transportador {get; set; }
-        public virtual DbSet<Agente> Agente {get; set; }
+        public virtual DbSet<Pais> Pais { get; set; }
+        public virtual DbSet<Empresa> Empresa { get; set; }
+        public virtual DbSet<NCM> NCM { get; set; }
+        public virtual DbSet<Fornecedor> Fornecedor { get; set; }
+        public virtual DbSet<InscricaoEstadual> InscricaoEstadual { get; set; }
+        public virtual DbSet<RepresentanteLegal> RepresentanteLegal { get; set; }
+        public virtual DbSet<CertificadoDigital> CertificadoDigital { get; set; }
+        public virtual DbSet<Item> Item { get; set; }
+        public virtual DbSet<Transportador> Transportador { get; set; }
+        public virtual DbSet<Agente> Agente { get; set; }
+        public virtual DbSet<AtoLegal> AtoLegal { get; set; }
 
 
 
@@ -63,6 +64,7 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<Item>();
             modelBuilder.Entity<Transportador>();
             modelBuilder.Entity<Agente>();
+            modelBuilder.Entity<AtoLegal>();
             
         }
 
