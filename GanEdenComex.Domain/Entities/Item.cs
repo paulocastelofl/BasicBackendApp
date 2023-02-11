@@ -18,11 +18,25 @@ namespace GanEdenComex.Domain.Entities
         public int? IdFornecedor { get; set; }
         public virtual Fornecedor? Fornecedor { get; set; }
         [ForeignKey("NCM")]
-        public int? IdNCM {get; set; }
-        public virtual NCM? NCM {get; set; }
-        //NALADI ?
+        public int? IdNCM { get; set; }
+        public virtual NCM? NCM { get; set; }
+        public int? NALADI { get; set; }
+        public string? DescricaoNALADI { get; set; }
+        public int? ProdutoSuframa { get; set; }
+        public string? DescricaoProdutoSuframa { get; set; }
+        public string? TipoProdutoSuframa { get; set; }
+        public string? DetalheProdutoSuframa { get; set; }
+        public double? AliquotaII {get; set; }
+        public double? AliquotaIPI { get; set; }
+        public double? AliquotaPIS { get; set; }
+        public double? AliquotaCOFINS { get; set; }
         [ForeignKey("Empresa")]
         public int? IdEmpresa { get; set; }
         public virtual Empresa? Empresa { get; set; }
+        /*
+        [ForeignKey("Fornecedor")]
+        public int? IdFornecedor { get; set; }
+        public virtual Fornecedor? Fornecedor { get; set; }
+        */
     }
 }

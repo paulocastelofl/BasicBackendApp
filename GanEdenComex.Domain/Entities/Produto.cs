@@ -12,7 +12,7 @@ namespace GanEdenComex.Domain.Entities
         public string? Nome_Produto { get; set; }
         public int? Quantidade { get; set; }
         public double? Peso { get; set; }
-        public string? Tipo_De_Emabalagem { get; set;}
+        public string? Tipo_De_Embalagem { get; set;}
         [ForeignKey("Fabricante")]
         public int? IdFabricante { get; set; }
         public virtual Fabricante? Fabricante { get; set; }
