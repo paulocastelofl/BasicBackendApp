@@ -37,6 +37,7 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<Transportador> Transportador { get; set; }
         public virtual DbSet<Agente> Agente { get; set; }
         public virtual DbSet<AtoLegal> AtoLegal { get; set; }
+        public virtual DbSet<Documentos> Documentos { get; set; }
 
 
 
@@ -65,6 +66,7 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<Transportador>();
             modelBuilder.Entity<Agente>();
             modelBuilder.Entity<AtoLegal>();
+            modelBuilder.Entity<Documentos>();
             
         }
 

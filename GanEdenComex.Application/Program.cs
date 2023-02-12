@@ -135,6 +135,9 @@ builder.Services.AddScoped<IBaseService<Agente>, BaseService<Agente>>();
 builder.Services.AddScoped<IBaseRepository<AtoLegal>, BaseRepository<AtoLegal>>();
 builder.Services.AddScoped<IBaseService<AtoLegal>, BaseService<AtoLegal>>();
 
+builder.Services.AddScoped<IBaseRepository<Documentos>, BaseRepository<Documentos>>();
+builder.Services.AddScoped<IBaseService<Documentos>, BaseService<Documentos>>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 
