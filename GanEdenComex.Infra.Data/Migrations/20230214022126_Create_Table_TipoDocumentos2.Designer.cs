@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230214022126_Create_Table_TipoDocumentos2")]
+    partial class CreateTableTipoDocumentos2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -339,8 +342,8 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Property<string>("InscricaoSuframa")
                         .HasColumnType("text");
 
-                    b.Property<double?>("LimiteDeValorFOB")
-                        .HasColumnType("double precision");
+                    b.Property<string>("LimiteDeValorFOB")
+                        .HasColumnType("text");
 
                     b.Property<string>("Logradouro")
                         .HasColumnType("text");
@@ -1242,7 +1245,7 @@ namespace GanEdenComex.Infra.Data.Migrations
             modelBuilder.Entity("GanEdenComex.Domain.Entities.InscricaoEstadual", b =>
                 {
                     b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
-                        .WithMany("InscricaoEstaduais")
+                        .WithMany()
                         .HasForeignKey("IdEmpresa");
 
                     b.Navigation("Empresa");
@@ -1344,8 +1347,6 @@ namespace GanEdenComex.Infra.Data.Migrations
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Empresa", b =>
                 {
                     b.Navigation("Associados");
-
-                    b.Navigation("InscricaoEstaduais");
                 });
 #pragma warning restore 612, 618
         }
