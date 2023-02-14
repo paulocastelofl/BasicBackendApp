@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace GanEdenComex.Domain.Entities
 {
-    public class AtividadeEconomica: BaseEntity
+    public class AtividadeEconomica: BaseEntityAux
     {
-        public string? Nome { get; set; }
-        public string? Codigo { get; set; }
         public int? Ordem { get; set; }
-        public DateTime? DtModificacao { get; set; }
     }
 }

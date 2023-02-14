@@ -41,7 +41,7 @@ namespace GanEdenComex.Application.Controllers
         {
             try
             {
-                return _baseAtvEconomicaService.Get().Where(x => (x.Codigo!+x.Nome!).ToUpper().Contains(q.ToUpper())).ToList();
+                return _baseAtvEconomicaService.Get().Where(x => (x.codigo!+x.nome!).ToUpper().Contains(q.ToUpper())).ToList();
             }
             catch (Exception ex)
             {

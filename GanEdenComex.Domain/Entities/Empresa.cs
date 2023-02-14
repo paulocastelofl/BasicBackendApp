@@ -28,7 +28,9 @@ namespace GanEdenComex.Domain.Entities
         public int? IdPais { get; set; }
         public virtual Pais? Pais { get; set; }
         public bool? AprovaRegistroDI {get; set; }
-        public string? AtividadeEconomica {get; set; }
+        [ForeignKey("AtividadeEconomica")]
+        public int? IdAtividadeEconomica {get; set; }
+        public virtual AtividadeEconomica? AtividadeEconomica { get; set; }
         public string? CNAE {get; set; }
         public string? NumeroDeCadastroNoMA {get; set; }
         public double? LimiteDeValorFOB {get; set; }
