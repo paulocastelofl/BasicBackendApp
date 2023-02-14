@@ -31,7 +31,7 @@ namespace GanEdenComex.Domain.Entities
         public string? AtividadeEconomica {get; set; }
         public string? CNAE {get; set; }
         public string? NumeroDeCadastroNoMA {get; set; }
-        //public string? LimiteDeValorFOB {get; set; }
+        public string? LimiteDeValorFOB {get; set; }
         public string? DespachantePadrao {get; set; }
         public int? PrazoDiasCEMercanteCritico {get; set; }
         public string? CentroDeCusto {get; set; }
@@ -43,6 +43,7 @@ namespace GanEdenComex.Domain.Entities
         public bool? ControlarCEMercantes {get; set; }
         public bool? ControlarCambio {get; set; }
         public bool? Segurado {get; set; }
+        public int? NumeroSequencialFIEAM { get; set; }
         [ForeignKey("Empresa")]
         public int? IdEmpresa { get; set; }
         public virtual ICollection<Empresa>? Associados { get; set; }

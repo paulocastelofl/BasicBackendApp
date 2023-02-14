@@ -158,6 +158,17 @@ builder.Services.AddScoped<IBaseService<AcordoAladi>, BaseService<AcordoAladi>>(
 
 builder.Services.AddScoped<IBaseRepository<Unidade>, BaseRepository<Unidade>>();
 builder.Services.AddScoped<IBaseService<Unidade>, BaseService<Unidade>>();
+builder.Services.AddScoped<IBaseRepository<Transportador>, BaseRepository<Transportador>>();
+builder.Services.AddScoped<IBaseService<Transportador>, BaseService<Transportador>>();
+
+builder.Services.AddScoped<IBaseRepository<Agente>, BaseRepository<Agente>>();
+builder.Services.AddScoped<IBaseService<Agente>, BaseService<Agente>>();
+
+builder.Services.AddScoped<IBaseRepository<AtoLegal>, BaseRepository<AtoLegal>>();
+builder.Services.AddScoped<IBaseService<AtoLegal>, BaseService<AtoLegal>>();
+
+builder.Services.AddScoped<IBaseRepository<Documentos>, BaseRepository<Documentos>>();
+builder.Services.AddScoped<IBaseService<Documentos>, BaseService<Documentos>>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 

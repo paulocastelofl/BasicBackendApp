@@ -26,6 +26,7 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<RegistroAcesso> RegistroAcesso { get; set; }
         public virtual DbSet<Produto> Produto { get; set; }
         public virtual DbSet<Fabricante> Fabricante { get; set; }
+<<<<<<< HEAD
         public virtual DbSet<Pais> Pais {get; set; }
         public virtual DbSet<Empresa> Empresa {get; set; }
         public virtual DbSet<NCM> NCM {get; set; }
@@ -49,6 +50,21 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<TipoAcordoTarifario> TipoAcordoTarifario { get; set; }
         public virtual DbSet<AcordoAladi> AcordoAladi { get; set; }
         public virtual DbSet<Unidade> Unidade { get; set; }
+=======
+        public virtual DbSet<Pais> Pais { get; set; }
+        public virtual DbSet<Empresa> Empresa { get; set; }
+        public virtual DbSet<NCM> NCM { get; set; }
+        public virtual DbSet<Fornecedor> Fornecedor { get; set; }
+        public virtual DbSet<InscricaoEstadual> InscricaoEstadual { get; set; }
+        public virtual DbSet<RepresentanteLegal> RepresentanteLegal { get; set; }
+        public virtual DbSet<CertificadoDigital> CertificadoDigital { get; set; }
+        public virtual DbSet<Item> Item { get; set; }
+        public virtual DbSet<Transportador> Transportador { get; set; }
+        public virtual DbSet<Agente> Agente { get; set; }
+        public virtual DbSet<AtoLegal> AtoLegal { get; set; }
+        public virtual DbSet<Documentos> Documentos { get; set; }
+
+>>>>>>> 6fe9f8d5060c605fd220b741b909aca45a972414
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -73,8 +89,10 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<RepresentanteLegal>();
             modelBuilder.Entity<CertificadoDigital>();
             modelBuilder.Entity<Item>();
-
-
+            modelBuilder.Entity<Transportador>();
+            modelBuilder.Entity<Agente>();
+            modelBuilder.Entity<AtoLegal>();
+            modelBuilder.Entity<Documentos>();
             
         }
 
