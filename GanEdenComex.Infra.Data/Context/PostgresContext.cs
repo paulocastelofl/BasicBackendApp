@@ -53,6 +53,7 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<Agente> Agente { get; set; }
         public virtual DbSet<AtoLegal> AtoLegal { get; set; }
         public virtual DbSet<Documentos> Documentos { get; set; }
+        public virtual DbSet<TipoDocumentos> TipoDocumentos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -80,6 +81,7 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<Agente>();
             modelBuilder.Entity<AtoLegal>();
             modelBuilder.Entity<Documentos>();
+            modelBuilder.Entity<TipoDocumentos>();
             
         }
 
