@@ -67,8 +67,7 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<Pais>();
             modelBuilder.Entity<Empresa>()
             .HasMany(b => b.Associados)
-            .WithOne().HasForeignKey(b => b.IdEmpresa)
-            ;
+            .WithOne().HasForeignKey(b => b.IdEmpresa);
 
             modelBuilder.Entity<NCM>();
             modelBuilder.Entity<Fornecedor>();

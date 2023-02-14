@@ -47,6 +47,65 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.ToTable("AcordoAladi");
                 });
 
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.Agente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Bairro")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CEP")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Cidade")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CodigoInterno")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Complemento")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Estado")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("IdEmpresa")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("IdPais")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("InscricaoEstadual")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Logradouro")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NIF")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NomeFantasia")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Numero")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RazaoSocial")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdEmpresa");
+
+                    b.HasIndex("IdPais");
+
+                    b.ToTable("Agente");
+                });
+
             modelBuilder.Entity("GanEdenComex.Domain.Entities.AtividadeEconomica", b =>
                 {
                     b.Property<int>("Id")
@@ -70,6 +129,57 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AtividadeEconomica");
+                });
+
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.AtoLegal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool?>("Ativo")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Descricao")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FundamentoII")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FundamentoPISCOFINS")
+                        .HasColumnType("text");
+
+                    b.Property<bool?>("Geral")
+                        .HasColumnType("boolean");
+
+                    b.Property<int?>("IdEmpresa")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("Numero")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Orgao")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RegimeIPI")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RegimePISCOFINS")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Tipo")
+                        .HasColumnType("text");
+
+                    b.Property<bool?>("VincularProcessos")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdEmpresa");
+
+                    b.ToTable("AtoLegal");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.CertificadoDigital", b =>
@@ -114,6 +224,36 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CoberturaCambial");
+                });
+
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.Documentos", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CaminhoDocumento")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("DataVencimentoDocumento")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("IdEmpresa")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("NumeroDocumento")
+                        .HasColumnType("text");
+
+                    b.Property<string>("TipoDocumento")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdEmpresa");
+
+                    b.ToTable("Documentos");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Empresa", b =>
@@ -199,8 +339,8 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Property<string>("InscricaoSuframa")
                         .HasColumnType("text");
 
-                    b.Property<string>("LimiteDeValorFOB")
-                        .HasColumnType("text");
+                    b.Property<double?>("LimiteDeValorFOB")
+                        .HasColumnType("double precision");
 
                     b.Property<string>("Logradouro")
                         .HasColumnType("text");
@@ -788,6 +928,65 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.ToTable("TipoAcordoTarifario");
                 });
 
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.Transportador", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Bairro")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CEP")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CNPJ")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Cidade")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CodigoInterno")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Complemento")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Estado")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("IdEmpresa")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("IdPais")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("InscricaoEstadual")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Logradouro")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NomeFantasia")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Numero")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RazaoSocial")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdEmpresa");
+
+                    b.HasIndex("IdPais");
+
+                    b.ToTable("Transportador");
+                });
+
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Unidade", b =>
                 {
                     b.Property<int>("Id")
@@ -946,6 +1145,39 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.ToTable("ZFMUtilizacao");
                 });
 
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.Agente", b =>
+                {
+                    b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("IdEmpresa");
+
+                    b.HasOne("GanEdenComex.Domain.Entities.Pais", "Pais")
+                        .WithMany()
+                        .HasForeignKey("IdPais");
+
+                    b.Navigation("Empresa");
+
+                    b.Navigation("Pais");
+                });
+
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.AtoLegal", b =>
+                {
+                    b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("IdEmpresa");
+
+                    b.Navigation("Empresa");
+                });
+
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.Documentos", b =>
+                {
+                    b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("IdEmpresa");
+
+                    b.Navigation("Empresa");
+                });
+
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Empresa", b =>
                 {
                     b.HasOne("GanEdenComex.Domain.Entities.Empresa", null)
@@ -986,7 +1218,7 @@ namespace GanEdenComex.Infra.Data.Migrations
             modelBuilder.Entity("GanEdenComex.Domain.Entities.InscricaoEstadual", b =>
                 {
                     b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
-                        .WithMany()
+                        .WithMany("InscricaoEstaduais")
                         .HasForeignKey("IdEmpresa");
 
                     b.Navigation("Empresa");
@@ -1079,6 +1311,8 @@ namespace GanEdenComex.Infra.Data.Migrations
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Empresa", b =>
                 {
                     b.Navigation("Associados");
+
+                    b.Navigation("InscricaoEstaduais");
                 });
 #pragma warning restore 612, 618
         }
