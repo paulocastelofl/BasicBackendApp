@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230211193158_Tbl_Incoterms_v2")]
+    partial class TblIncotermsv2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,28 +27,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.AcordoAladi", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AcordoAladi");
-                });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.AtividadeEconomica", b =>
                 {
@@ -92,28 +73,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CertificadoDigital");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.CoberturaCambial", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CoberturaCambial");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Empresa", b =>
@@ -333,28 +292,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.ToTable("Fornecedor");
                 });
 
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.FundamentoLegal", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FundamentoLegal");
-                });
-
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Incoterms", b =>
                 {
                     b.Property<int>("Id")
@@ -445,75 +382,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.HasIndex("IdNCM");
 
                     b.ToTable("Item");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.ModalidadePagamento", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("ordem")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ModalidadePagamento");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.Moeda", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Moeda");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.MotivoSemCobertura_cambial", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MotivoSemCobertura_cambial");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.NCM", b =>
@@ -607,28 +475,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.ToTable("Produto");
                 });
 
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.RegimeTributavel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RegimeTributavel");
-                });
-
             modelBuilder.Entity("GanEdenComex.Domain.Entities.RegistroAcesso", b =>
                 {
                     b.Property<int>("Id")
@@ -694,50 +540,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.ToTable("RepresentanteLegal");
                 });
 
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.TipoAcordoTarifario", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TipoAcordoTarifario");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.Unidade", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Unidade");
-                });
-
             modelBuilder.Entity("GanEdenComex.Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -769,109 +571,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.HasIndex("IdEmpresa");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.ZFMAplicacaoMaterial", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ZFMAplicacaoMaterial");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.ZFMDestinacao", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ZFMDestinacao");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.ZFMTributacao", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<double?>("aliquotaIcms")
-                        .HasColumnType("double precision");
-
-                    b.Property<double?>("aliquotaMva")
-                        .HasColumnType("double precision");
-
-                    b.Property<double?>("aliquotaReducao")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("coeficienteLei2826")
-                        .HasColumnType("double precision");
-
-                    b.Property<double?>("coeficienteNormal")
-                        .HasColumnType("double precision");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ZFMTributacao");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.ZFMUtilizacao", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ZFMUtilizacao");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Empresa", b =>

@@ -34,7 +34,21 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<RepresentanteLegal> RepresentanteLegal {get; set; }
         public virtual DbSet<CertificadoDigital> CertificadoDigital {get; set; }
         public virtual DbSet<Item> Item {get; set; }
-
+        public virtual DbSet<AtividadeEconomica> AtividadeEconomica { get; set; }
+        public virtual DbSet<Incoterms> Incoterms { get; set; }
+        public virtual DbSet<CoberturaCambial> CoberturaCambial { get; set; }
+        public virtual DbSet<MotivoSemCobertura_cambial> MotivoSemCobertura_cambial { get; set; }
+        public virtual DbSet<ZFMDestinacao> ZFMDestinacao { get; set; }
+        public virtual DbSet<ZFMTributacao> ZFMTributacao { get; set; }
+        public virtual DbSet<ZFMUtilizacao> ZFMUtilizacao { get; set; }
+        public virtual DbSet<ZFMAplicacaoMaterial> ZFMAplicacaoMaterial { get; set; }
+        public virtual DbSet<RegimeTributavel> RegimeTributavel { get; set; }
+        public virtual DbSet<FundamentoLegal> FundamentoLegal { get; set; }
+        public virtual DbSet<ModalidadePagamento> ModalidadePagamento { get; set; }
+        public virtual DbSet<Moeda> Moeda { get; set; }
+        public virtual DbSet<TipoAcordoTarifario> TipoAcordoTarifario { get; set; }
+        public virtual DbSet<AcordoAladi> AcordoAladi { get; set; }
+        public virtual DbSet<Unidade> Unidade { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -69,7 +83,7 @@ namespace GanEdenComex.Infra.Data.Context
 
     /* Comands Migration
      
-         dotnet ef migrations add InitialCreate_2 --project .\GanEdenComex.Infra.Data --startup-project .\GanEdenComex.Application
+         dotnet ef migrations add AtividadeEconomica --project .\GanEdenComex.Infra.Data --startup-project .\GanEdenComex.Application
 
         dotnet ef database update --project .\GanEdenComex.Infra.Data --startup-project .\GanEdenComex.Application
 

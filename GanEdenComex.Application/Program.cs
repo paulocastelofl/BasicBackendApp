@@ -126,6 +126,39 @@ builder.Services.AddScoped<IBaseService<CertificadoDigital>, BaseService<Certifi
 builder.Services.AddScoped<IBaseRepository<Item>, BaseRepository<Item>>();
 builder.Services.AddScoped<IBaseService<Item>, BaseService<Item>>();
 
+builder.Services.AddScoped<IBaseRepository<AtividadeEconomica>, BaseRepository<AtividadeEconomica>>();
+builder.Services.AddScoped<IBaseService<AtividadeEconomica>, BaseService<AtividadeEconomica>>();
+
+builder.Services.AddScoped<IBaseRepository<CoberturaCambial>, BaseRepository<CoberturaCambial>>();
+builder.Services.AddScoped<IBaseService<CoberturaCambial>, BaseService<CoberturaCambial>>();
+
+builder.Services.AddScoped<IBaseRepository<MotivoSemCobertura_cambial>, BaseRepository<MotivoSemCobertura_cambial>>();
+builder.Services.AddScoped<IBaseService<MotivoSemCobertura_cambial>, BaseService<MotivoSemCobertura_cambial>>();
+
+builder.Services.AddScoped<IBaseRepository<ZFMDestinacao>, BaseRepository<ZFMDestinacao>>();
+builder.Services.AddScoped<IBaseService<ZFMDestinacao>, BaseService<ZFMDestinacao>>();
+
+builder.Services.AddScoped<IBaseRepository<ZFMUtilizacao>, BaseRepository<ZFMUtilizacao>>();
+builder.Services.AddScoped<IBaseService<ZFMUtilizacao>, BaseService<ZFMUtilizacao>>();
+
+builder.Services.AddScoped<IBaseRepository<ZFMAplicacaoMaterial>, BaseRepository<ZFMAplicacaoMaterial>>();
+builder.Services.AddScoped<IBaseService<ZFMAplicacaoMaterial>, BaseService<ZFMAplicacaoMaterial>>();
+
+builder.Services.AddScoped<IBaseRepository<RegimeTributavel>, BaseRepository<RegimeTributavel>>();
+builder.Services.AddScoped<IBaseService<RegimeTributavel>, BaseService<RegimeTributavel>>();
+
+builder.Services.AddScoped<IBaseRepository<FundamentoLegal>, BaseRepository<FundamentoLegal>>();
+builder.Services.AddScoped<IBaseService<FundamentoLegal>, BaseService<FundamentoLegal>>();
+
+builder.Services.AddScoped<IBaseRepository<TipoAcordoTarifario>, BaseRepository<TipoAcordoTarifario>>();
+builder.Services.AddScoped<IBaseService<TipoAcordoTarifario>, BaseService<TipoAcordoTarifario>>();
+
+builder.Services.AddScoped<IBaseRepository<AcordoAladi>, BaseRepository<AcordoAladi>>();
+builder.Services.AddScoped<IBaseService<AcordoAladi>, BaseService<AcordoAladi>>();
+
+builder.Services.AddScoped<IBaseRepository<Unidade>, BaseRepository<Unidade>>();
+builder.Services.AddScoped<IBaseService<Unidade>, BaseService<Unidade>>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 
