@@ -45,7 +45,7 @@ namespace GanEdenComex.Application.Controllers
 
             try
             {
-                return Ok(_baseUserService.Update(empresa));
+                return Ok(_empresaService.Update(empresa));
             }
             catch (Exception ex)
             {

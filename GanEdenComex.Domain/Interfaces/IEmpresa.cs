@@ -12,5 +12,7 @@ namespace GanEdenComex.Domain.Interfaces
         IList<Empresa> GetByEmpresa(int id);
 
         Empresa UpdateStatus(int id, bool status);
+
+        Empresa Update(Empresa obj);
     }
 }
