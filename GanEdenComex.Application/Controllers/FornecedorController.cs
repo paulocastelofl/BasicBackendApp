@@ -98,5 +98,20 @@ namespace GanEdenComex.Application.Controllers
 
         }
 
+        [HttpGet("GetByQ")]
+        public ActionResult<IList<Fornecedor>> Get(string q)
+        {
+            try
+            {
+                
+               return _baseUserService.Get().Where(x => (x.NomeFantasia!).ToUpper().Contains(q.ToUpper())).ToList();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
     }
 }
