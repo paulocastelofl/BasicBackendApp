@@ -21,7 +21,8 @@ namespace GanEdenComex.Application.Controllers
         private IBaseService<TipoAcordoTarifario> _baseTipoAcordoTarifario;
         private IBaseService<AcordoAladi> _baseAcordoAladi;
         private IBaseService<Unidade> _baseUnidade;
-        
+        private IBaseService<Naladi> _baseNaladi;
+
         public BaseTablesAuxController(
 
              IBaseService<CoberturaCambial> baseCoberturaCambial,
@@ -33,7 +34,8 @@ namespace GanEdenComex.Application.Controllers
              IBaseService<FundamentoLegal> baseFundamentoLegal,
              IBaseService<TipoAcordoTarifario> baseTipoAcordoTarifario,
              IBaseService<AcordoAladi> baseAcordoAladi,
-             IBaseService<Unidade> baseUnidade
+             IBaseService<Unidade> baseUnidade,
+             IBaseService<Naladi> baseNaladi
         )
         {
               _baseCoberturaCambial = baseCoberturaCambial;
@@ -46,6 +48,7 @@ namespace GanEdenComex.Application.Controllers
               _baseTipoAcordoTarifario = baseTipoAcordoTarifario;
               _baseAcordoAladi = baseAcordoAladi;
               _baseUnidade = baseUnidade;
+               _baseNaladi = baseNaladi;
         }
 
         [HttpPost("CoberturaCambial")]
@@ -368,6 +371,39 @@ namespace GanEdenComex.Application.Controllers
             try
             {
                 return _baseUnidade.Get().ToList();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
+        //*****************************************************************************************//
+
+        [HttpPost("Naladi")]
+        public IActionResult CreateNaladi([FromBody] Naladi naladi)
+        {
+            if (naladi == null)
+                return NotFound();
+
+            try
+            {
+                return Ok(_baseNaladi.Add(naladi));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpGet("Naladi")]
+        public ActionResult<IList<Naladi>> GetNaladi()
+        {
+            try
+            {
+                return _baseNaladi.Get().ToList();
             }
             catch (Exception ex)
             {

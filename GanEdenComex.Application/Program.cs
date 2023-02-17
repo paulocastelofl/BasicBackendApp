@@ -170,6 +170,9 @@ builder.Services.AddScoped<IBaseService<AtoLegal>, BaseService<AtoLegal>>();
 builder.Services.AddScoped<IBaseRepository<Documentos>, BaseRepository<Documentos>>();
 builder.Services.AddScoped<IBaseService<Documentos>, BaseService<Documentos>>();
 
+builder.Services.AddScoped<IBaseRepository<Naladi>, BaseRepository<Naladi>>();
+builder.Services.AddScoped<IBaseService<Naladi>, BaseService<Naladi>>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 
