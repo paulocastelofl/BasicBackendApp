@@ -8,7 +8,8 @@ namespace GanEdenComex.Domain.Entities
 {
     public class Naladi: BaseEntity
     {
-        public string codigo { get; set; }
+        public string? codigo { get; set; }
+        public string? nome { get; set; }
         public int? ordem { get; set; }
         public DateTime? dtModificacao { get; set; }
     }

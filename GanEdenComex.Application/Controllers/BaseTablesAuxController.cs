@@ -399,11 +399,11 @@ namespace GanEdenComex.Application.Controllers
 
 
         [HttpGet("Naladi")]
-        public ActionResult<IList<Naladi>> GetNaladi()
+        public ActionResult<IList<Naladi>> GetNaladi(string q)
         {
             try
             {
-                return _baseNaladi.Get().ToList();
+                return _baseNaladi.Get().Where(x => (x.codigo! + x.nome!).ToUpper().Contains(q.ToUpper())).ToList();
             }
             catch (Exception ex)
             {
