@@ -28,7 +28,7 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<Fabricante> Fabricante { get; set; }
         public virtual DbSet<Pais> Pais {get; set; }
         public virtual DbSet<Empresa> Empresa {get; set; }
-        public virtual DbSet<NCM> NCM {get; set; }
+        public virtual DbSet<Ncm> Ncm {get; set; }
         public virtual DbSet<Fornecedor> Fornecedor {get; set; }
         public virtual DbSet<InscricaoEstadual> InscricaoEstadual {get; set; }
         public virtual DbSet<RepresentanteLegal> RepresentanteLegal {get; set; }
@@ -72,7 +72,7 @@ namespace GanEdenComex.Infra.Data.Context
             .HasMany(b => b.Associados)
             .WithOne().HasForeignKey(b => b.IdEmpresa);
 
-            modelBuilder.Entity<NCM>();
+            modelBuilder.Entity<Ncm>();
             modelBuilder.Entity<Fornecedor>();
             modelBuilder.Entity<InscricaoEstadual>();
             modelBuilder.Entity<RepresentanteLegal>();

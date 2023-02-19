@@ -8,17 +8,17 @@ namespace GanEdenComex.Application.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [AllowAnonymous]
-    public class NCMController : Controller
+    public class NcmController : Controller
     {
-        private IBaseService<NCM> _baseUserService;
+        private IBaseService<Ncm> _baseUserService;
 
-        public NCMController(IBaseService<NCM> baseUserService)
+        public NcmController(IBaseService<Ncm> baseUserService)
         {
             _baseUserService = baseUserService;
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] NCM ncm)
+        public IActionResult Create([FromBody] Ncm ncm)
         {
             if (ncm == null)
                 return NotFound();
@@ -34,7 +34,7 @@ namespace GanEdenComex.Application.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update([FromBody] NCM ncm)
+        public IActionResult Update([FromBody] Ncm ncm)
         {
             if (ncm == null)
                 return NotFound();
@@ -51,7 +51,7 @@ namespace GanEdenComex.Application.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IList<NCM>> Get()
+        public ActionResult<IList<Ncm>> Get()
         {
             try
             {
@@ -65,7 +65,7 @@ namespace GanEdenComex.Application.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<NCM> Get(int id)
+        public ActionResult<Ncm> Get(int id)
         {
             if (id == 0)
                 return NotFound();

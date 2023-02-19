@@ -15,9 +15,10 @@ namespace GanEdenComex.Domain.Entities
         [ForeignKey("Fornecedor")]
         public int? IdFornecedor { get; set; }
         public virtual Fornecedor? Fornecedor { get; set; }
-        [ForeignKey("NCM")]
+        
+        [ForeignKey("Ncm")]
         public int? IdNCM { get; set; }
-        public virtual NCM? NCM { get; set; }
+        public virtual Ncm? Ncm { get; set; }
         [ForeignKey("Unidade")]
         public int? IdUnidade { get; set; }
         public virtual Unidade? unidade { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GanEdenComex.Domain.Entities
 {
-    public class NCM: BaseEntity
+    public class Ncm: BaseEntity
     {
         public DateTime? dtModificacao { get; set; }
         [ForeignKey("Unidade")]

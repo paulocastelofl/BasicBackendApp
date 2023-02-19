@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,10 +33,10 @@ namespace GanEdenComex.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Nome = table.Column<string>(type: "text", nullable: true),
-                    Codigo = table.Column<string>(type: "text", nullable: true),
                     Ordem = table.Column<int>(type: "integer", nullable: true),
-                    DtModificacao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                    nome = table.Column<string>(type: "text", nullable: true),
+                    codigo = table.Column<string>(type: "text", nullable: true),
+                    dtModificacao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -71,6 +71,23 @@ namespace GanEdenComex.Infra.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CoberturaCambial", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ExTarifario",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    codigo = table.Column<string>(type: "text", nullable: true),
+                    orgao = table.Column<string>(type: "text", nullable: true),
+                    ato = table.Column<string>(type: "text", nullable: true),
+                    ano = table.Column<string>(type: "text", nullable: true),
+                    dtModificacao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ExTarifario", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -152,23 +169,19 @@ namespace GanEdenComex.Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "NCM",
+                name: "Naladi",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    CodigoNCM = table.Column<string>(name: "Codigo_NCM", type: "text", nullable: true),
-                    Descricao = table.Column<string>(type: "text", nullable: true),
-                    DescricaoConcatenada = table.Column<string>(name: "Descricao_Concatenada", type: "text", nullable: true),
-                    DataInicio = table.Column<DateTime>(name: "Data_Inicio", type: "timestamp with time zone", nullable: true),
-                    DataFim = table.Column<DateTime>(name: "Data_Fim", type: "timestamp with time zone", nullable: true),
-                    AtoLegal = table.Column<string>(name: "Ato_Legal", type: "text", nullable: true),
-                    Numero = table.Column<string>(type: "text", nullable: true),
-                    Ano = table.Column<string>(type: "text", nullable: true)
+                    codigo = table.Column<string>(type: "text", nullable: true),
+                    nome = table.Column<string>(type: "text", nullable: true),
+                    ordem = table.Column<int>(type: "integer", nullable: true),
+                    dtModificacao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_NCM", x => x.Id);
+                    table.PrimaryKey("PK_Naladi", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -318,7 +331,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                     InscricaoSuframa = table.Column<string>(type: "text", nullable: true),
                     IdPais = table.Column<int>(type: "integer", nullable: true),
                     AprovaRegistroDI = table.Column<bool>(type: "boolean", nullable: true),
-                    AtividadeEconomica = table.Column<string>(type: "text", nullable: true),
+                    IdAtividadeEconomica = table.Column<int>(type: "integer", nullable: true),
                     CNAE = table.Column<string>(type: "text", nullable: true),
                     NumeroDeCadastroNoMA = table.Column<string>(type: "text", nullable: true),
                     LimiteDeValorFOB = table.Column<double>(type: "double precision", nullable: true),
@@ -340,6 +353,11 @@ namespace GanEdenComex.Infra.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Empresa", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Empresa_AtividadeEconomica_IdAtividadeEconomica",
+                        column: x => x.IdAtividadeEconomica,
+                        principalTable: "AtividadeEconomica",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Empresa_Empresa_IdEmpresa",
                         column: x => x.IdEmpresa,
@@ -376,6 +394,34 @@ namespace GanEdenComex.Infra.Data.Migrations
                         name: "FK_Fabricante_Pais_IdPais",
                         column: x => x.IdPais,
                         principalTable: "Pais",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Ncm",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    dtModificacao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    IdUnidade = table.Column<int>(type: "integer", nullable: true),
+                    unidadeId = table.Column<int>(type: "integer", nullable: true),
+                    vlIi = table.Column<double>(type: "double precision", nullable: true),
+                    vlIiMercosul = table.Column<double>(type: "double precision", nullable: true),
+                    vlIpi = table.Column<double>(type: "double precision", nullable: true),
+                    vlPis = table.Column<double>(type: "double precision", nullable: true),
+                    vlCofins = table.Column<double>(type: "double precision", nullable: true),
+                    dtAtualizacao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    nome = table.Column<string>(type: "text", nullable: true),
+                    codigo = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ncm", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Ncm_Unidade_unidadeId",
+                        column: x => x.unidadeId,
+                        principalTable: "Unidade",
                         principalColumn: "Id");
                 });
 
@@ -632,9 +678,29 @@ namespace GanEdenComex.Infra.Data.Migrations
                         principalTable: "Fabricante",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Produto_NCM_IdNCM",
+                        name: "FK_Produto_Ncm_IdNCM",
                         column: x => x.IdNCM,
-                        principalTable: "NCM",
+                        principalTable: "Ncm",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TipoDocumentos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    NomeTipoDocumento = table.Column<string>(type: "text", nullable: true),
+                    TipoSiscomexDocumento = table.Column<string>(type: "text", nullable: true),
+                    IdDocumentos = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoDocumentos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TipoDocumentos_Documentos_IdDocumentos",
+                        column: x => x.IdDocumentos,
+                        principalTable: "Documentos",
                         principalColumn: "Id");
                 });
 
@@ -645,34 +711,28 @@ namespace GanEdenComex.Infra.Data.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     PartNumber = table.Column<string>(type: "text", nullable: true),
-                    CodigoInterno = table.Column<int>(type: "integer", nullable: true),
-                    UnidadeOrganizacional = table.Column<string>(type: "text", nullable: true),
+                    partNumberInterno = table.Column<string>(type: "text", nullable: true),
                     DescricaoDetalhada = table.Column<string>(type: "text", nullable: true),
-                    DescricaoNFE = table.Column<string>(type: "text", nullable: true),
                     IdFornecedor = table.Column<int>(type: "integer", nullable: true),
                     IdNCM = table.Column<int>(type: "integer", nullable: true),
-                    NALADI = table.Column<int>(type: "integer", nullable: true),
-                    DescricaoNALADI = table.Column<string>(type: "text", nullable: true),
-                    CodigoExTarifario = table.Column<string>(type: "text", nullable: true),
-                    OrgaoExTarifario = table.Column<string>(type: "text", nullable: true),
-                    TipoExTarifario = table.Column<string>(type: "text", nullable: true),
-                    AtoExTarifario = table.Column<string>(type: "text", nullable: true),
-                    AnoExTarifario = table.Column<string>(type: "text", nullable: true),
-                    CodigoExTIPI = table.Column<string>(type: "text", nullable: true),
-                    OrgaoExTIPI = table.Column<string>(type: "text", nullable: true),
-                    TipoExTIPI = table.Column<string>(type: "text", nullable: true),
-                    AtoExTIPI = table.Column<string>(type: "text", nullable: true),
-                    AnoExTIPI = table.Column<string>(type: "text", nullable: true),
-                    Destaque = table.Column<string>(type: "text", nullable: true),
-                    ProdutoSuframa = table.Column<int>(type: "integer", nullable: true),
+                    IdUnidade = table.Column<int>(type: "integer", nullable: true),
+                    unidadeId = table.Column<int>(type: "integer", nullable: true),
+                    DescricaoNFE = table.Column<string>(type: "text", nullable: true),
+                    detalheNcm = table.Column<string>(type: "text", nullable: true),
+                    ProdutoSuframa = table.Column<string>(type: "text", nullable: true),
                     DescricaoProdutoSuframa = table.Column<string>(type: "text", nullable: true),
-                    TipoProdutoSuframa = table.Column<string>(type: "text", nullable: true),
-                    DetalheProdutoSuframa = table.Column<string>(type: "text", nullable: true),
+                    tipoProduto = table.Column<string>(type: "text", nullable: true),
+                    tratamentoAdministrativo = table.Column<string>(type: "text", nullable: true),
+                    vlCra = table.Column<double>(type: "double precision", nullable: true),
                     AliquotaII = table.Column<double>(type: "double precision", nullable: true),
                     AliquotaIPI = table.Column<double>(type: "double precision", nullable: true),
                     AliquotaPIS = table.Column<double>(type: "double precision", nullable: true),
                     AliquotaCOFINS = table.Column<double>(type: "double precision", nullable: true),
-                    IdEmpresa = table.Column<int>(type: "integer", nullable: true)
+                    UnidadeOrganizacional = table.Column<string>(type: "text", nullable: true),
+                    dtModificacao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    IdEmpresa = table.Column<int>(type: "integer", nullable: true),
+                    IdNaladi = table.Column<int>(type: "integer", nullable: true),
+                    naladiId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -688,9 +748,19 @@ namespace GanEdenComex.Infra.Data.Migrations
                         principalTable: "Fornecedor",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Item_NCM_IdNCM",
+                        name: "FK_Item_Naladi_naladiId",
+                        column: x => x.naladiId,
+                        principalTable: "Naladi",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Item_Ncm_IdNCM",
                         column: x => x.IdNCM,
-                        principalTable: "NCM",
+                        principalTable: "Ncm",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Item_Unidade_unidadeId",
+                        column: x => x.unidadeId,
+                        principalTable: "Unidade",
                         principalColumn: "Id");
                 });
 
@@ -733,6 +803,11 @@ namespace GanEdenComex.Infra.Data.Migrations
                 name: "IX_Documentos_IdEmpresa",
                 table: "Documentos",
                 column: "IdEmpresa");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Empresa_IdAtividadeEconomica",
+                table: "Empresa",
+                column: "IdAtividadeEconomica");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Empresa_IdEmpresa",
@@ -780,6 +855,21 @@ namespace GanEdenComex.Infra.Data.Migrations
                 column: "IdNCM");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Item_naladiId",
+                table: "Item",
+                column: "naladiId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Item_unidadeId",
+                table: "Item",
+                column: "unidadeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ncm_unidadeId",
+                table: "Ncm",
+                column: "unidadeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Produto_IdFabricante",
                 table: "Produto",
                 column: "IdFabricante");
@@ -803,6 +893,11 @@ namespace GanEdenComex.Infra.Data.Migrations
                 name: "IX_RepresentanteLegal_IdEmpresa",
                 table: "RepresentanteLegal",
                 column: "IdEmpresa");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TipoDocumentos_IdDocumentos",
+                table: "TipoDocumentos",
+                column: "IdDocumentos");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transportador_IdEmpresa",
@@ -830,16 +925,13 @@ namespace GanEdenComex.Infra.Data.Migrations
                 name: "Agente");
 
             migrationBuilder.DropTable(
-                name: "AtividadeEconomica");
-
-            migrationBuilder.DropTable(
                 name: "AtoLegal");
 
             migrationBuilder.DropTable(
                 name: "CoberturaCambial");
 
             migrationBuilder.DropTable(
-                name: "Documentos");
+                name: "ExTarifario");
 
             migrationBuilder.DropTable(
                 name: "FundamentoLegal");
@@ -878,10 +970,10 @@ namespace GanEdenComex.Infra.Data.Migrations
                 name: "TipoAcordoTarifario");
 
             migrationBuilder.DropTable(
-                name: "Transportador");
+                name: "TipoDocumentos");
 
             migrationBuilder.DropTable(
-                name: "Unidade");
+                name: "Transportador");
 
             migrationBuilder.DropTable(
                 name: "ZFMAplicacaoMaterial");
@@ -899,10 +991,13 @@ namespace GanEdenComex.Infra.Data.Migrations
                 name: "Fornecedor");
 
             migrationBuilder.DropTable(
+                name: "Naladi");
+
+            migrationBuilder.DropTable(
                 name: "Fabricante");
 
             migrationBuilder.DropTable(
-                name: "NCM");
+                name: "Ncm");
 
             migrationBuilder.DropTable(
                 name: "Users");
@@ -911,7 +1006,16 @@ namespace GanEdenComex.Infra.Data.Migrations
                 name: "CertificadoDigital");
 
             migrationBuilder.DropTable(
+                name: "Documentos");
+
+            migrationBuilder.DropTable(
+                name: "Unidade");
+
+            migrationBuilder.DropTable(
                 name: "Empresa");
+
+            migrationBuilder.DropTable(
+                name: "AtividadeEconomica");
 
             migrationBuilder.DropTable(
                 name: "Pais");

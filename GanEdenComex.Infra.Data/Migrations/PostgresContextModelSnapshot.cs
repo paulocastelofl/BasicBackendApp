@@ -744,7 +744,32 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.ToTable("MotivoSemCobertura_cambial");
                 });
 
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.NCM", b =>
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.Naladi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("codigo")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("dtModificacao")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("nome")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("ordem")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Naladi");
+                });
+
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.Ncm", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -789,32 +814,7 @@ namespace GanEdenComex.Infra.Data.Migrations
 
                     b.HasIndex("unidadeId");
 
-                    b.ToTable("NCM");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.Naladi", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("ordem")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Naladi");
+                    b.ToTable("Ncm");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Pais", b =>
@@ -1316,7 +1316,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .WithMany()
                         .HasForeignKey("IdFornecedor");
 
-                    b.HasOne("GanEdenComex.Domain.Entities.NCM", "NCM")
+                    b.HasOne("GanEdenComex.Domain.Entities.Ncm", "Ncm")
                         .WithMany()
                         .HasForeignKey("IdNCM");
 
@@ -1332,14 +1332,14 @@ namespace GanEdenComex.Infra.Data.Migrations
 
                     b.Navigation("Fornecedor");
 
-                    b.Navigation("NCM");
+                    b.Navigation("Ncm");
 
                     b.Navigation("naladi");
 
                     b.Navigation("unidade");
                 });
 
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.NCM", b =>
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.Ncm", b =>
                 {
                     b.HasOne("GanEdenComex.Domain.Entities.Unidade", "unidade")
                         .WithMany()
@@ -1354,13 +1354,13 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .WithMany()
                         .HasForeignKey("IdFabricante");
 
-                    b.HasOne("GanEdenComex.Domain.Entities.NCM", "NCM")
+                    b.HasOne("GanEdenComex.Domain.Entities.Ncm", "Ncm")
                         .WithMany()
                         .HasForeignKey("IdNCM");
 
                     b.Navigation("Fabricante");
 
-                    b.Navigation("NCM");
+                    b.Navigation("Ncm");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.RegistroAcesso", b =>
