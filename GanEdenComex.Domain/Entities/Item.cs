@@ -37,19 +37,11 @@ namespace GanEdenComex.Domain.Entities
         [ForeignKey("Empresa")]
         public int? IdEmpresa { get; set; }
         public virtual Empresa? Empresa { get; set; }
-
-        /* Grande change ficar aqui essa informação
-        [ForeignKey("AcordoAladi")]
-        public int? IdAcordoAladi { get; set; }
-        public virtual AcordoAladi? acordoaladi { get; set; }
-        */
+        [ForeignKey("Naladi")]
+        public int? IdNaladi { get; set; }
+        public virtual Naladi? naladi { get; set; }
 
         /*
-        public string? CodigoExTarifario { get; set; }
-        public string? OrgaoExTarifario { get; set; }
-        public string? TipoExTarifario { get; set; }
-        public string? AtoExTarifario { get; set; }
-        public string? AnoExTarifario { get; set; }
         public string? CodigoExTIPI { get; set; }
         public string? OrgaoExTIPI { get; set; }
         public string? TipoExTIPI { get; set; }
