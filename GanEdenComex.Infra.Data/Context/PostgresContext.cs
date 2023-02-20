@@ -56,6 +56,7 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<TipoDocumentos> TipoDocumentos { get; set; }
         public virtual DbSet<Naladi> Naladi { get; set; }
         public virtual DbSet<ExTarifario> ExTarifario { get; set; }
+        public virtual DbSet<ExTIPI> ExTIPI { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -85,6 +86,7 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<TipoDocumentos>();
             modelBuilder.Entity<Naladi>();
             modelBuilder.Entity<ExTarifario>();
+            modelBuilder.Entity<ExTIPI>();
 
         }
 

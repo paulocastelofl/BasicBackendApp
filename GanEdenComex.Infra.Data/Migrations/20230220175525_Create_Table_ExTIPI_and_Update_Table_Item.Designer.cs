@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230220175525_Create_Table_ExTIPI_and_Update_Table_Item")]
+    partial class CreateTableExTIPIandUpdateTableItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -643,9 +646,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Property<int?>("IdEmpresa")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("IdExTIPI")
-                        .HasColumnType("integer");
-
                     b.Property<int?>("IdExTarifario")
                         .HasColumnType("integer");
 
@@ -679,9 +679,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Property<int?>("extarifarioId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("extipiId")
-                        .HasColumnType("integer");
-
                     b.Property<int?>("naladiId")
                         .HasColumnType("integer");
 
@@ -709,8 +706,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.HasIndex("IdNCM");
 
                     b.HasIndex("extarifarioId");
-
-                    b.HasIndex("extipiId");
 
                     b.HasIndex("naladiId");
 
@@ -1368,10 +1363,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .WithMany()
                         .HasForeignKey("extarifarioId");
 
-                    b.HasOne("GanEdenComex.Domain.Entities.ExTIPI", "extipi")
-                        .WithMany()
-                        .HasForeignKey("extipiId");
-
                     b.HasOne("GanEdenComex.Domain.Entities.Naladi", "naladi")
                         .WithMany()
                         .HasForeignKey("naladiId");
@@ -1387,8 +1378,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Navigation("Ncm");
 
                     b.Navigation("extarifario");
-
-                    b.Navigation("extipi");
 
                     b.Navigation("naladi");
 

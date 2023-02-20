@@ -41,14 +41,12 @@ namespace GanEdenComex.Domain.Entities
         [ForeignKey("Naladi")]
         public int? IdNaladi { get; set; }
         public virtual Naladi? naladi { get; set; }
-
-        /*
-        public string? CodigoExTIPI { get; set; }
-        public string? OrgaoExTIPI { get; set; }
-        public string? TipoExTIPI { get; set; }
-        public string? AtoExTIPI { get; set; }
-        public string? AnoExTIPI { get; set; }
-        */
+        [ForeignKey("ExTarifario")]
+        public int? IdExTarifario { get; set; }
+        public virtual ExTarifario? extarifario { get; set; }
+        [ForeignKey("ExTIPI")]
+        public int? IdExTIPI { get; set; }
+        public virtual ExTIPI? extipi { get; set; }
        
     }
 }
