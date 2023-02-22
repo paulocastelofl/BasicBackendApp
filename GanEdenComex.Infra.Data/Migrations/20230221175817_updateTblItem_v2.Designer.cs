@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230221175817_updateTblItem_v2")]
+    partial class updateTblItemv2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +40,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -121,7 +124,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -194,7 +197,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("DT_Vencimento_CertificadoDigital")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Senha_CerficadoDigital")
                         .HasColumnType("text");
@@ -216,7 +219,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -238,7 +241,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime>("DataVencimentoDocumento")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("IdEmpresa")
                         .HasColumnType("integer");
@@ -398,7 +401,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("orgao")
                         .HasColumnType("text");
@@ -426,7 +429,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("orgao")
                         .HasColumnType("text");
@@ -552,7 +555,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -574,7 +577,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<bool?>("freteEmbutido")
                         .HasColumnType("boolean");
@@ -634,23 +637,14 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Property<double?>("aliquotaPis")
                         .HasColumnType("double precision");
 
-                    b.Property<string>("codigoInterno")
-                        .HasColumnType("text");
-
                     b.Property<string>("descricao")
-                        .HasColumnType("text");
-
-                    b.Property<string>("descricaoItemNfe")
                         .HasColumnType("text");
 
                     b.Property<string>("detalheNcm")
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("naladi")
-                        .HasColumnType("text");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("ncm")
                         .HasColumnType("text");
@@ -662,9 +656,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("unidade")
-                        .HasColumnType("text");
-
-                    b.Property<string>("unidadeOrganizacional")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -686,7 +677,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -711,7 +702,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -733,7 +724,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -755,7 +746,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -783,10 +774,10 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtAtualizacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -882,7 +873,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -901,7 +892,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("Dt_E_Hora_Ultimo_Acesso")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Processo_Ultimo_Acesso")
                         .HasColumnType("text");
@@ -969,7 +960,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -1074,7 +1065,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -1129,7 +1120,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -1151,7 +1142,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -1188,7 +1179,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("double precision");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -1210,7 +1201,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");

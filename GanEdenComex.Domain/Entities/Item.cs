@@ -9,7 +9,27 @@ namespace GanEdenComex.Domain.Entities
 {
     public class Item: BaseEntity
     {
-        public string? PartNumber { get; set; }
+        public string? ncm { get; set; }
+        public string? naladi { get; set; }
+        public string? descricao { get; set; }
+        public string? partNumber { get; set; }
+        public string? codigoInterno { get; set; }
+        public string? unidadeOrganizacional { get; set; }
+        public string? descricaoItemNfe { get; set; }
+        public string? unidade { get; set; }
+        public string? detalheNcm { get; set; }
+        public string? produtoSuframa { get; set; }
+        public double? aliquotaIi { get; set; }
+        public double? aliquotaIpi { get; set; }
+        public double? aliquotaPis { get; set; }
+        public double? aliquotaCofins { get; set; }
+        public DateTime? dtModificacao { get; set; } = DateTime.Now;
+
+        [ForeignKey("Fornecedor")]
+        public int? IdFornecedor { get; set; }
+        public virtual Fornecedor? Fornecedor { get; set; }
+
+        /*public string? PartNumber { get; set; }
         public string? partNumberInterno { get; set; }
         public string? DescricaoDetalhada { get; set;}
         [ForeignKey("Fornecedor")]
@@ -46,7 +66,7 @@ namespace GanEdenComex.Domain.Entities
         public virtual ExTarifario? extarifario { get; set; }
         [ForeignKey("ExTIPI")]
         public int? IdExTIPI { get; set; }
-        public virtual ExTIPI? extipi { get; set; }
-       
+        public virtual ExTIPI? extipi { get; set; }*/
+
     }
 }

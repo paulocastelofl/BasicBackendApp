@@ -17,12 +17,18 @@ namespace GanEdenComex.Service.Services
     {
         private readonly IBaseRepository<Empresa> _baseRepository;
         private readonly IBaseRepository<InscricaoEstadual> _baseRepositoryInscricaoEstadual;
+        protected readonly PostgresContext _postgresctx;
 
 
-        public EmpresaService(IBaseRepository<Empresa> baseRepository, IBaseRepository<InscricaoEstadual> baseRepositoryInscricaoEstadual)
+        public EmpresaService(
+            IBaseRepository<Empresa> baseRepository,
+            IBaseRepository<InscricaoEstadual> baseRepositoryInscricaoEstadual,
+            PostgresContext postgresctx
+            )
         {
             _baseRepository = baseRepository;
             _baseRepositoryInscricaoEstadual = baseRepositoryInscricaoEstadual;
+            _postgresctx = postgresctx;
         }
 
         public IList<Empresa> GetByEmpresa(int id)
@@ -32,38 +38,40 @@ namespace GanEdenComex.Service.Services
 
         public Empresa Update(Empresa obj)
         {
+
+
             var empresa = _baseRepository.Select(obj.Id);
 
             if (empresa != null)
-            {
-                _baseRepository.Update(empresa);
-
-
+             {
+                _postgresctx.Entry(empresa).CurrentValues.SetValues(obj);
+                _postgresctx.Entry(empresa).State = EntityState.Modified;
+                _postgresctx.SaveChanges();
 
                 foreach (var inscricaoEstadual in empresa.InscricaoEstaduais!.ToList())
-                {
+                 {
 
-                    bool hasElements = obj.InscricaoEstaduais!.Any(c => c.Id == inscricaoEstadual.Id);
+                     bool hasElements = obj.InscricaoEstaduais!.Any(c => c.Id == inscricaoEstadual.Id);
 
-                    if (!hasElements) _baseRepositoryInscricaoEstadual.Delete(inscricaoEstadual.Id);
+                     if (!hasElements) _baseRepositoryInscricaoEstadual.Delete(inscricaoEstadual.Id);
 
-                }
+                 }
 
-                // Update and Insert children
-                foreach (var inscricaoEstadual in obj.InscricaoEstaduais!)
-                {
-                  if(inscricaoEstadual.Id == 0)
-                    {
-                        _baseRepositoryInscricaoEstadual.Insert(inscricaoEstadual);
-                    }
-                }
-            }
-            else
-            {
-                throw new Exception("Invalid Data", new HttpResponseException(HttpStatusCode.NotFound));
-            }
+                 // Update and Insert children
+                 foreach (var inscricaoEstadual in obj.InscricaoEstaduais!)
+                 {
+                   if(inscricaoEstadual.Id == 0)
+                     {
+                         _baseRepositoryInscricaoEstadual.Insert(inscricaoEstadual);
+                     }
+                 }
+             }
+             else
+             {
+                 throw new Exception("Invalid Data", new HttpResponseException(HttpStatusCode.NotFound));
+             }
 
-           return empresa;
+            return obj;
         }
 
         public Empresa UpdateStatus(int id, bool status)

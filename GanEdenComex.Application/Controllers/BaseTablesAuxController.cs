@@ -366,11 +366,11 @@ namespace GanEdenComex.Application.Controllers
 
 
         [HttpGet("Unidade")]
-        public ActionResult<IList<Unidade>> GetUnidade()
+        public ActionResult<IList<Unidade>> GetUnidade(string q)
         {
             try
             {
-                return _baseUnidade.Get().ToList();
+                return _baseUnidade.Get().Where(x => (x.codigo! + x.nome!).ToUpper().Contains(q.ToUpper())).ToList();
             }
             catch (Exception ex)
             {

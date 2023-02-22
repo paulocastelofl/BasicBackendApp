@@ -6,6 +6,7 @@ using GanEdenComex.Domain.Interfaces;
 using GanEdenComex.Infra.Data.Context;
 using GanEdenComex.Infra.Data.Repository;
 using GanEdenComex.Service.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -89,6 +90,8 @@ builder.Services.AddDbContext<PostgresContext>(options =>
     .UseLazyLoadingProxies()
     .UseNpgsql(builder.Configuration.GetConnectionString("Default"));
 });
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 builder.Services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
 builder.Services.AddScoped<IBaseService<User>, BaseService<User>>();
@@ -174,6 +177,8 @@ builder.Services.AddScoped<IBaseRepository<Naladi>, BaseRepository<Naladi>>();
 builder.Services.AddScoped<IBaseService<Naladi>, BaseService<Naladi>>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
+
+
 
 
 var app = builder.Build();

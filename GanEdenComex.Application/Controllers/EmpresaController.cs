@@ -1,5 +1,6 @@
 ﻿using GanEdenComex.Domain.Entities;
 using GanEdenComex.Domain.Interfaces;
+using GanEdenComex.Infra.Data.Context;
 using GanEdenComex.Service.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ namespace GanEdenComex.Application.Controllers
     {
         private IBaseService<Empresa> _baseUserService;
         private IEmpresaService _empresaService;
+        
 
 
         public EmpresaController(IBaseService<Empresa> baseUserService,  IEmpresaService empresaService)
