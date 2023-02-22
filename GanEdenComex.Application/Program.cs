@@ -173,6 +173,9 @@ builder.Services.AddScoped<IBaseService<Documentos>, BaseService<Documentos>>();
 builder.Services.AddScoped<IBaseRepository<Naladi>, BaseRepository<Naladi>>();
 builder.Services.AddScoped<IBaseService<Naladi>, BaseService<Naladi>>();
 
+builder.Services.AddScoped<IBaseRepository<TipoFornecedor>, BaseRepository<TipoFornecedor>>();
+builder.Services.AddScoped<IBaseService<TipoFornecedor>, BaseService<TipoFornecedor>>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 
