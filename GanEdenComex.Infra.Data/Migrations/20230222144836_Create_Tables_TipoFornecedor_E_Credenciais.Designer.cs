@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230222144836_Create_Tables_TipoFornecedor_E_Credenciais")]
+    partial class CreateTablesTipoFornecedorECredenciais
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +40,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -121,7 +124,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -194,7 +197,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("DT_Vencimento_CertificadoDigital")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Senha_CerficadoDigital")
                         .HasColumnType("text");
@@ -216,7 +219,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -260,7 +263,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime>("DataVencimentoDocumento")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("IdEmpresa")
                         .HasColumnType("integer");
@@ -420,7 +423,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("orgao")
                         .HasColumnType("text");
@@ -448,7 +451,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("orgao")
                         .HasColumnType("text");
@@ -574,7 +577,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -596,7 +599,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<bool?>("freteEmbutido")
                         .HasColumnType("boolean");
@@ -641,57 +644,102 @@ namespace GanEdenComex.Infra.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<double?>("AliquotaCOFINS")
+                        .HasColumnType("double precision");
+
+                    b.Property<double?>("AliquotaII")
+                        .HasColumnType("double precision");
+
+                    b.Property<double?>("AliquotaIPI")
+                        .HasColumnType("double precision");
+
+                    b.Property<double?>("AliquotaPIS")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("DescricaoDetalhada")
+                        .HasColumnType("text");
+
+                    b.Property<string>("DescricaoNFE")
+                        .HasColumnType("text");
+
+                    b.Property<string>("DescricaoProdutoSuframa")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("IdEmpresa")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("IdExTIPI")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("IdExTarifario")
+                        .HasColumnType("integer");
+
                     b.Property<int?>("IdFornecedor")
                         .HasColumnType("integer");
 
-                    b.Property<double?>("aliquotaCofins")
-                        .HasColumnType("double precision");
+                    b.Property<int?>("IdNCM")
+                        .HasColumnType("integer");
 
-                    b.Property<double?>("aliquotaIi")
-                        .HasColumnType("double precision");
+                    b.Property<int?>("IdNaladi")
+                        .HasColumnType("integer");
 
-                    b.Property<double?>("aliquotaIpi")
-                        .HasColumnType("double precision");
+                    b.Property<int?>("IdUnidade")
+                        .HasColumnType("integer");
 
-                    b.Property<double?>("aliquotaPis")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("codigoInterno")
+                    b.Property<string>("PartNumber")
                         .HasColumnType("text");
 
-                    b.Property<string>("descricao")
+                    b.Property<string>("ProdutoSuframa")
                         .HasColumnType("text");
 
-                    b.Property<string>("descricaoItemNfe")
+                    b.Property<string>("UnidadeOrganizacional")
                         .HasColumnType("text");
 
                     b.Property<string>("detalheNcm")
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("naladi")
+                    b.Property<int?>("extarifarioId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("extipiId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("naladiId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("partNumberInterno")
                         .HasColumnType("text");
 
-                    b.Property<string>("ncm")
+                    b.Property<string>("tipoProduto")
                         .HasColumnType("text");
 
-                    b.Property<string>("partNumber")
+                    b.Property<string>("tratamentoAdministrativo")
                         .HasColumnType("text");
 
-                    b.Property<string>("produtoSuframa")
-                        .HasColumnType("text");
+                    b.Property<int?>("unidadeId")
+                        .HasColumnType("integer");
 
-                    b.Property<string>("unidade")
-                        .HasColumnType("text");
-
-                    b.Property<string>("unidadeOrganizacional")
-                        .HasColumnType("text");
+                    b.Property<double?>("vlCra")
+                        .HasColumnType("double precision");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdEmpresa");
+
                     b.HasIndex("IdFornecedor");
+
+                    b.HasIndex("IdNCM");
+
+                    b.HasIndex("extarifarioId");
+
+                    b.HasIndex("extipiId");
+
+                    b.HasIndex("naladiId");
+
+                    b.HasIndex("unidadeId");
 
                     b.ToTable("Item");
                 });
@@ -708,7 +756,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -733,7 +781,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -755,7 +803,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -777,7 +825,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -805,10 +853,10 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtAtualizacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -904,7 +952,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -923,7 +971,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("Dt_E_Hora_Ultimo_Acesso")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Processo_Ultimo_Acesso")
                         .HasColumnType("text");
@@ -991,7 +1039,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -1126,7 +1174,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -1181,7 +1229,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -1203,7 +1251,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -1240,7 +1288,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("double precision");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -1262,7 +1310,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("nome")
                         .HasColumnType("text");
@@ -1359,11 +1407,47 @@ namespace GanEdenComex.Infra.Data.Migrations
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Item", b =>
                 {
+                    b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("IdEmpresa");
+
                     b.HasOne("GanEdenComex.Domain.Entities.Fornecedor", "Fornecedor")
                         .WithMany()
                         .HasForeignKey("IdFornecedor");
 
+                    b.HasOne("GanEdenComex.Domain.Entities.Ncm", "Ncm")
+                        .WithMany()
+                        .HasForeignKey("IdNCM");
+
+                    b.HasOne("GanEdenComex.Domain.Entities.ExTarifario", "extarifario")
+                        .WithMany()
+                        .HasForeignKey("extarifarioId");
+
+                    b.HasOne("GanEdenComex.Domain.Entities.ExTIPI", "extipi")
+                        .WithMany()
+                        .HasForeignKey("extipiId");
+
+                    b.HasOne("GanEdenComex.Domain.Entities.Naladi", "naladi")
+                        .WithMany()
+                        .HasForeignKey("naladiId");
+
+                    b.HasOne("GanEdenComex.Domain.Entities.Unidade", "unidade")
+                        .WithMany()
+                        .HasForeignKey("unidadeId");
+
+                    b.Navigation("Empresa");
+
                     b.Navigation("Fornecedor");
+
+                    b.Navigation("Ncm");
+
+                    b.Navigation("extarifario");
+
+                    b.Navigation("extipi");
+
+                    b.Navigation("naladi");
+
+                    b.Navigation("unidade");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Ncm", b =>
