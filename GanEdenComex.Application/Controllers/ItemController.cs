@@ -11,10 +11,15 @@ namespace GanEdenComex.Application.Controllers
     public class ItemController : Controller
     {
         private IBaseService<Item> _baseUserService;
+        private IItemSevice _itemService;
 
-        public ItemController(IBaseService<Item> baseUserService)
+        public ItemController(
+            IBaseService<Item> baseUserService,
+            IItemSevice itemService            
+            )
         {
             _baseUserService = baseUserService;
+            _itemService = itemService;
         }
 
         [HttpPost]
@@ -96,6 +101,13 @@ namespace GanEdenComex.Application.Controllers
                 return BadRequest(ex);
             }
 
+        }
+
+        [HttpPost("SaveExcelFileItens")]
+        public async Task<IActionResult> SaveExcelFileItens(IFormFile file, int IdEmpresa)
+        {
+
+            return Ok(await _itemService.SaveExcelFileItensAsync(file, IdEmpresa));
         }
 
     }

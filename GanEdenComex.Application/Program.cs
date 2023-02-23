@@ -41,6 +41,9 @@ builder.Services.AddAuthentication(x =>
 
 });
 
+
+builder.Services.AddHttpClient();
+
 // Add services to the container.
 
 builder.Services.AddControllers().AddJsonOptions(x =>
@@ -128,6 +131,7 @@ builder.Services.AddScoped<IBaseService<CertificadoDigital>, BaseService<Certifi
 
 builder.Services.AddScoped<IBaseRepository<Item>, BaseRepository<Item>>();
 builder.Services.AddScoped<IBaseService<Item>, BaseService<Item>>();
+builder.Services.AddScoped<IItemSevice, ItemService>();
 
 builder.Services.AddScoped<IBaseRepository<AtividadeEconomica>, BaseRepository<AtividadeEconomica>>();
 builder.Services.AddScoped<IBaseService<AtividadeEconomica>, BaseService<AtividadeEconomica>>();

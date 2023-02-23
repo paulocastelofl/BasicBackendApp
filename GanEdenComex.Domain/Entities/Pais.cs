@@ -9,7 +9,12 @@ namespace GanEdenComex.Domain.Entities
 {
     public class Pais: BaseEntity
     {
-        public string? Codigo_Pais { get; set; }
-        public string? Nome_Pais { get; set; }
+        public string? Nome { get; set; }
+        public string? Codigo { get; set; }
+        public int? Ordem { get; set; }
+        public DateTime? DtModificacao { get; set; }
+        public string? CdNfe { get; set; }
+        public string? Iso3166 { get; set; }
+        public string? Iso3166_3 { get; set; }
     }
 }

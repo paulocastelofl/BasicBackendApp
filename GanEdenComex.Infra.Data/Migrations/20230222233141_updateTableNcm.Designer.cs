@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230222233141_updateTableNcm")]
+    partial class updateTableNcm
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -641,9 +644,6 @@ namespace GanEdenComex.Infra.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("IdEmpresa")
-                        .HasColumnType("integer");
-
                     b.Property<int?>("IdFornecedor")
                         .HasColumnType("integer");
 
@@ -693,8 +693,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdEmpresa");
 
                     b.HasIndex("IdFornecedor");
 
@@ -848,26 +846,11 @@ namespace GanEdenComex.Infra.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CdNfe")
+                    b.Property<string>("Codigo_Pais")
                         .HasColumnType("text");
 
-                    b.Property<string>("Codigo")
+                    b.Property<string>("Nome_Pais")
                         .HasColumnType("text");
-
-                    b.Property<DateTime?>("DtModificacao")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("Iso3166")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Iso3166_3")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("Ordem")
-                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -1376,15 +1359,9 @@ namespace GanEdenComex.Infra.Data.Migrations
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Item", b =>
                 {
-                    b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
-                        .WithMany()
-                        .HasForeignKey("IdEmpresa");
-
                     b.HasOne("GanEdenComex.Domain.Entities.Fornecedor", "Fornecedor")
                         .WithMany()
                         .HasForeignKey("IdFornecedor");
-
-                    b.Navigation("Empresa");
 
                     b.Navigation("Fornecedor");
                 });

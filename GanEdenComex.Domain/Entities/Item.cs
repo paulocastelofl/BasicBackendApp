@@ -28,6 +28,9 @@ namespace GanEdenComex.Domain.Entities
         [ForeignKey("Fornecedor")]
         public int? IdFornecedor { get; set; }
         public virtual Fornecedor? Fornecedor { get; set; }
+        [ForeignKey("Empresa")]
+        public int? IdEmpresa { get; set; }
+        public virtual Empresa? Empresa { get; set; }
 
         /*public string? PartNumber { get; set; }
         public string? partNumberInterno { get; set; }

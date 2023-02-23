@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230223152122_updateTablePais")]
+    partial class updateTablePais
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -641,9 +644,6 @@ namespace GanEdenComex.Infra.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("IdEmpresa")
-                        .HasColumnType("integer");
-
                     b.Property<int?>("IdFornecedor")
                         .HasColumnType("integer");
 
@@ -693,8 +693,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdEmpresa");
 
                     b.HasIndex("IdFornecedor");
 
@@ -1376,15 +1374,9 @@ namespace GanEdenComex.Infra.Data.Migrations
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Item", b =>
                 {
-                    b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
-                        .WithMany()
-                        .HasForeignKey("IdEmpresa");
-
                     b.HasOne("GanEdenComex.Domain.Entities.Fornecedor", "Fornecedor")
                         .WithMany()
                         .HasForeignKey("IdFornecedor");
-
-                    b.Navigation("Empresa");
 
                     b.Navigation("Fornecedor");
                 });

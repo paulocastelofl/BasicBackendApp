@@ -22,6 +22,7 @@ namespace GanEdenComex.Application.Controllers
         private IBaseService<AcordoAladi> _baseAcordoAladi;
         private IBaseService<Unidade> _baseUnidade;
         private IBaseService<Naladi> _baseNaladi;
+        private IBaseService<Ncm> _baseNcm;
 
         public BaseTablesAuxController(
 
@@ -35,7 +36,8 @@ namespace GanEdenComex.Application.Controllers
              IBaseService<TipoAcordoTarifario> baseTipoAcordoTarifario,
              IBaseService<AcordoAladi> baseAcordoAladi,
              IBaseService<Unidade> baseUnidade,
-             IBaseService<Naladi> baseNaladi
+             IBaseService<Naladi> baseNaladi,
+             IBaseService<Ncm> baseNcm
         )
         {
               _baseCoberturaCambial = baseCoberturaCambial;
@@ -48,7 +50,8 @@ namespace GanEdenComex.Application.Controllers
               _baseTipoAcordoTarifario = baseTipoAcordoTarifario;
               _baseAcordoAladi = baseAcordoAladi;
               _baseUnidade = baseUnidade;
-               _baseNaladi = baseNaladi;
+              _baseNaladi = baseNaladi;
+              _baseNcm = baseNcm;
         }
 
         [HttpPost("CoberturaCambial")]
@@ -404,6 +407,21 @@ namespace GanEdenComex.Application.Controllers
             try
             {
                 return _baseNaladi.Get().Where(x => (x.codigo! + x.nome!).ToUpper().Contains(q.ToUpper())).ToList();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
+
+        [HttpGet("Ncm")]
+        public ActionResult<IList<Ncm>> GetNcm(string q)
+        {
+            try
+            {
+                return _baseNcm.Get().Where(x => (x.Codigo!).ToUpper().Contains(q.ToUpper())).ToList();
             }
             catch (Exception ex)
             {
