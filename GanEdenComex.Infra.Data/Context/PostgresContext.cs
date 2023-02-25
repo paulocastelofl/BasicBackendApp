@@ -59,6 +59,7 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<ExTIPI> ExTIPI { get; set; }
         public virtual DbSet<TipoFornecedor> TipoFornecedor { get; set; }
         public virtual DbSet<Credenciais> Credenciais { get; set; }
+        public virtual DbSet<Conta> Conta { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -91,6 +92,7 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<ExTIPI>();
             modelBuilder.Entity<TipoFornecedor>();
             modelBuilder.Entity<Credenciais>();
+            modelBuilder.Entity<Conta>();
 
         }
 
