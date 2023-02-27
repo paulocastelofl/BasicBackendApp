@@ -45,7 +45,7 @@ namespace GanEdenComex.Service.Services
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<string> SaveExcelFileItensAsync(IFormFile file, int IdEmpresa)
+        public async Task<dynamic> SaveExcelFileItensAsync(IFormFile file, int IdEmpresa)
         {
             IExcelDataReader reader;
 
@@ -154,7 +154,7 @@ namespace GanEdenComex.Service.Services
 
                 }
             }
-            return "it is ok!";
+            return new { success = true, msg = "successfully" };
         }
 
         private int saveFornecedor(
@@ -201,7 +201,7 @@ namespace GanEdenComex.Service.Services
                 {
                     Headers =
                     {
-                        { "X-AuthToken", "M2NhMWFjNDYtZjE2YS00MmI1LTgxM2YtYTE4Nzk3N2QwOTAzOjoxNjc3MjAwMTg2MTYw" },
+                        { "X-AuthToken", "NjIzOTgzMWEtNWIxMy00NWZkLWEwYTgtZjQ1ODA5NjM3ZThhOjoxNjc4NDc3NDcwODg1" },
                     }
                 };
 
