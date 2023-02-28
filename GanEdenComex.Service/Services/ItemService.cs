@@ -1,8 +1,11 @@
 ﻿using ExcelDataReader;
 using GanEdenComex.Domain.Entities;
 using GanEdenComex.Domain.Interfaces;
+using GanEdenComex.Infra.Data.Context;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
@@ -25,6 +28,7 @@ namespace GanEdenComex.Service.Services
         private readonly IBaseRepository<Pais> _basePaisRepository;
         private readonly IBaseRepository<Item> _baseItemRepository;
         private readonly IBaseRepository<Ncm> _baseNcmRepository;
+        protected readonly PostgresContext _postgresctx;
 
 
         public ItemService(
@@ -33,7 +37,8 @@ namespace GanEdenComex.Service.Services
             IBaseRepository<Pais> basePaisRepository,
             IBaseRepository<Item> baseItemRepository,
             IBaseRepository<Ncm> baseNcmRepository,
-            IHttpClientFactory httpClientFactory
+            IHttpClientFactory httpClientFactory,
+            PostgresContext postgresctx
 
             )
         {
@@ -43,6 +48,7 @@ namespace GanEdenComex.Service.Services
             _baseItemRepository = baseItemRepository;
             _baseNcmRepository = baseNcmRepository;
             _httpClientFactory = httpClientFactory;
+            _postgresctx = postgresctx;
         }
 
         public async Task<dynamic> SaveExcelFileItensAsync(IFormFile file, int IdEmpresa)
@@ -65,7 +71,6 @@ namespace GanEdenComex.Service.Services
             string dataFileName = Path.GetFileName(file.FileName);
 
             string extension = Path.GetExtension(dataFileName);
-
 
             string[] allowedExtsnions = new string[] { ".xls", ".xlsx" };
 
@@ -99,59 +104,63 @@ namespace GanEdenComex.Service.Services
 
                     for (int i = 1; i < serviceDetails.Rows.Count; i++)
                     {
-                        int codigoFornecedor = 0;
+                        var itemC = _baseItemRepository.Select()
+                            .Where(x => x.partNumber!.ToUpper().Equals(serviceDetails.Rows[i][0].ToString()!.ToUpper()))
+                            .ToList()
+                            .FirstOrDefault();
 
-                        //Código Fabricante
-                        if (serviceDetails.Rows[i][8].ToString() == "")
+                        if (itemC == null)
                         {
-                            var fornecedor = _baseFornecedorRepository.Select()
-                                .Where(x => x.NomeFantasia!.ToUpper()!.Equals(serviceDetails.Rows[i][9].ToString()!.ToUpper()) && x.IdEmpresa == IdEmpresa)
-                                .ToList()
-                                .FirstOrDefault();
+                            int codigoFornecedor = 0;
 
-                            if (fornecedor != null) codigoFornecedor = fornecedor.Id;
-                            else codigoFornecedor = saveFornecedor(serviceDetails, i, IdEmpresa); //Cadastrar Fornecedor/Fabricante
-                        }
-                        else
-                        {
-                      
-                            if(int.TryParse(serviceDetails.Rows[i][8].ToString(), out _))// Verifica se é um numero na coluna Fabricante
+                            //Código Fabricante
+                            if (serviceDetails.Rows[i][8].ToString() == "")
                             {
-                                var fornecedor = _baseFornecedorRepository.Select(int.Parse(serviceDetails.Rows[i][8].ToString()!));
+                                var fornecedor = _baseFornecedorRepository.Select()
+                                    .Where(x => x.NomeFantasia!.ToUpper()!.Equals(serviceDetails.Rows[i][9].ToString()!.ToUpper()) && x.IdEmpresa == IdEmpresa)
+                                    .ToList()
+                                    .FirstOrDefault();
 
                                 if (fornecedor != null) codigoFornecedor = fornecedor.Id;
-                                else throw new Exception("Desculpe! Não foi possivel localizar o codigo do fornecedor na linha: " + i.ToString() + ".",
-                                         new HttpResponseException(HttpStatusCode.BadRequest));
-                            }   
-                            else throw new Exception("Desculpe! Não foi possivel identificar o codigo do fornecedor na linha: "+i.ToString()+".",
-                                new HttpResponseException(HttpStatusCode.BadRequest));
-                        }
-
-                        if (await isExistNcmAsync(serviceDetails.Rows[i][4].ToString()!, i))
-                        {
-                            var item = new Item
+                                else codigoFornecedor = saveFornecedor(serviceDetails, i, IdEmpresa); //Cadastrar Fornecedor/Fabricante
+                            }
+                            else
                             {
-                                partNumber = serviceDetails.Rows[i][0].ToString(),
-                                codigoInterno = serviceDetails.Rows[i][1].ToString(),
-                                descricao = serviceDetails.Rows[i][2].ToString(),
-                                descricaoItemNfe = serviceDetails.Rows[i][3].ToString(),
-                                ncm = serviceDetails.Rows[i][4].ToString(),
-                                unidadeOrganizacional = serviceDetails.Rows[i][7].ToString(),
-                                IdFornecedor = codigoFornecedor,
+                                if (int.TryParse(serviceDetails.Rows[i][8].ToString(), out _))// Verifica se é um numero na coluna Fabricante
+                                {
+                                    var fornecedor = _baseFornecedorRepository.Select(int.Parse(serviceDetails.Rows[i][8].ToString()!));
 
-                                aliquotaIi = float.Parse(serviceDetails.Rows[i][23].ToString()!),
-                                aliquotaIpi = float.Parse(serviceDetails.Rows[i][24].ToString()!),
-                                aliquotaPis = float.Parse(serviceDetails.Rows[i][25].ToString()!),
-                                aliquotaCofins = float.Parse(serviceDetails.Rows[i][26].ToString()!),
-                                IdEmpresa = IdEmpresa
-                            };
+                                    if (fornecedor != null) codigoFornecedor = fornecedor.Id;
+                                    else throw new Exception("Desculpe! Não foi possivel localizar o codigo do fornecedor na linha: " + i.ToString() + ".",
+                                             new HttpResponseException(HttpStatusCode.BadRequest));
+                                }
+                                else throw new Exception("Desculpe! Não foi possivel identificar o codigo do fornecedor na linha: " + i.ToString() + ".",
+                                    new HttpResponseException(HttpStatusCode.BadRequest));
+                            }
 
-                            _baseItemRepository.Insert(item);
-                        }
+                            if (await isExistNcmAsync(serviceDetails.Rows[i][4].ToString()!, i))
+                            {
+                                var item = new Item
+                                {
+                                    partNumber = serviceDetails.Rows[i][0].ToString(),
+                                    codigoInterno = serviceDetails.Rows[i][1].ToString(),
+                                    descricao = serviceDetails.Rows[i][2].ToString(),
+                                    descricaoItemNfe = serviceDetails.Rows[i][3].ToString(),
+                                    ncm = serviceDetails.Rows[i][4].ToString(),
+                                    unidadeOrganizacional = serviceDetails.Rows[i][7].ToString(),
+                                    IdFornecedor = codigoFornecedor,
 
-                       
+                                    aliquotaIi = float.Parse(serviceDetails.Rows[i][23].ToString()!),
+                                    aliquotaIpi = float.Parse(serviceDetails.Rows[i][24].ToString()!),
+                                    aliquotaPis = float.Parse(serviceDetails.Rows[i][25].ToString()!),
+                                    aliquotaCofins = float.Parse(serviceDetails.Rows[i][26].ToString()!),
+                                    IdEmpresa = IdEmpresa
+                                };
+
+                                _baseItemRepository.Insert(item);
+                            }
+                        } 
                     }
-
                 }
             }
             return new { success = true, msg = "successfully" };
@@ -242,5 +251,33 @@ namespace GanEdenComex.Service.Services
                      new HttpResponseException(HttpStatusCode.BadRequest)); ;
             
         }
+
+
+        public async Task<dynamic> SelectAsyncItems(
+            int skip,
+            int take,
+            string q
+            ) {
+
+            var total = await _postgresctx.Set<Item>()
+                .Where(x => x.partNumber!.ToUpper().StartsWith(q.ToUpper()))
+                .CountAsync();
+
+            var data = await _postgresctx.Set<Item>()
+                .Where(x => x.partNumber!.ToUpper().StartsWith(q.ToUpper()))
+                .Skip((skip - 1) * take)
+                .Take(take)
+                .ToListAsync();
+
+            return new
+            {
+                Total = total,
+                Skip = skip,
+                Take = take,
+                Data = data,
+               
+            };
+
+        }   
     }
 }

@@ -56,11 +56,11 @@ namespace GanEdenComex.Application.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IList<Item>> Get()
+        public async Task<ActionResult> GetAsync( int page = 1, int take = 10, string? q = "")
         {
             try
             {
-                return _baseUserService.Get().ToList();
+                return Ok(await _itemService.SelectAsyncItems(page, take, q));
             }
             catch (Exception ex)
             {

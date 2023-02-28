@@ -11,5 +11,6 @@ namespace GanEdenComex.Domain.Interfaces
     public interface IItemSevice
     {
         Task<dynamic> SaveExcelFileItensAsync(IFormFile file, int IdEmpresa);
+        Task<dynamic> SelectAsyncItems(int skip, int take, string q);
     }
 }
