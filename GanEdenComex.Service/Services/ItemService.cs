@@ -264,6 +264,7 @@ namespace GanEdenComex.Service.Services
                 .CountAsync();
 
             var data = await _postgresctx.Set<Item>()
+                .OrderByDescending(x => x.Id)
                 .Where(x => x.partNumber!.ToUpper().StartsWith(q.ToUpper()))
                 .Skip((skip - 1) * take)
                 .Take(take)
