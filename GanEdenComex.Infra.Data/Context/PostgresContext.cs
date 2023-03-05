@@ -61,6 +61,8 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<Credenciais> Credenciais { get; set; }
         public virtual DbSet<Conta> Conta { get; set; }
         public virtual DbSet<ProdutoSuframa> ProdutoSuframa { get; set; }
+        public virtual DbSet<Modal> Modal { get; set; }
+        public virtual DbSet<Urf> Urf { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -95,6 +97,8 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<Credenciais>();
             modelBuilder.Entity<Conta>();
             modelBuilder.Entity<ProdutoSuframa>();
+            modelBuilder.Entity<Modal>();
+            modelBuilder.Entity<Urf>();
 
         }
 
