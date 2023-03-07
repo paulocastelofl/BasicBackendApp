@@ -17,5 +17,8 @@ namespace GanEdenComex.Domain.Entities
        public bool? ResponsavelSefaz { get; set; }
        public bool? OptanteLei2826 { get; set; }
        public bool? ArmazenaArquivoRetornoPLI { get; set; }
+       [ForeignKey("Empresa")]
+       public int? IdEmpresa { get; set; }
+       public virtual Empresa? Empresa { get; set; }
     }
 }
