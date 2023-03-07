@@ -23,8 +23,21 @@ namespace GanEdenComex.Domain.Entities
         [ForeignKey("Pais")]
         public int? IdPais { get; set; }
         public virtual Pais? Pais { get; set; }
-        public int? Modal { get; set; } //chave estrangeira p/ Modal
-        public int? UrfdeChegada { get; set; } //chave estrangeira p/ Urf
-        public int? UrfdeDespacho { get; set; } //chave estrangeira p/ Urf
+        [ForeignKey("Modal")]
+        public int? IdModal { get; set; } //chave estrangeira p/ Modal
+        public virtual Modal? Modal { get; set; }
+        [ForeignKey("Urf")]
+        public int? IDUrfdeChegada { get; set; } //chave estrangeira p/ Urf
+        public virtual Urf? Urf { get; set; }
+        [ForeignKey("Urf")]
+        public int? IdUrfdeDespacho { get; set; } //chave estrangeira p/ Urf
+        public string? TipoDeConsignatario { get; set; }
+        public string? ModalidadeDeDespacho { get; set; }
+        public bool? OperacaoFundap { get; set; }
+        public bool? ProcessoCritico { get; set; }
+        public string? CentroDeCusto { get; set; }
+        public DateTime? NecessidadeImportador { get; set; }
+        //public string? AnalistaImportador { get; set; }
+        //public string? AnalistaDespachante { get; set; }
     }
 }
