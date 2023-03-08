@@ -61,6 +61,14 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<Credenciais> Credenciais { get; set; }
         public virtual DbSet<Conta> Conta { get; set; }
         public virtual DbSet<ProdutoSuframa> ProdutoSuframa { get; set; }
+        public virtual DbSet<Modal> Modal { get; set; }
+        public virtual DbSet<Urf> Urf { get; set; }
+        public virtual DbSet<ZFM> ZFM { get; set; }
+        public virtual DbSet<Destinacao> Destinacao { get; set; }
+        public virtual DbSet<Utilizacao> Utilizacao { get; set; }
+        public virtual DbSet<Tributacao> Tributacao { get; set; }
+        public virtual DbSet<TipoDoc> TipoDoc { get; set; }
+        public virtual DbSet<MatrizTributacao> MatrizTributacao { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -95,6 +103,14 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<Credenciais>();
             modelBuilder.Entity<Conta>();
             modelBuilder.Entity<ProdutoSuframa>();
+            modelBuilder.Entity<Modal>();
+            modelBuilder.Entity<Urf>();
+            modelBuilder.Entity<ZFM>();
+            modelBuilder.Entity<Destinacao>();
+            modelBuilder.Entity<Utilizacao>();
+            modelBuilder.Entity<Tributacao>();
+            modelBuilder.Entity<TipoDoc>();
+            modelBuilder.Entity<MatrizTributacao>();
 
         }
 
