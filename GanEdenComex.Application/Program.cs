@@ -165,6 +165,16 @@ builder.Services.AddScoped<IBaseService<AcordoAladi>, BaseService<AcordoAladi>>(
 
 builder.Services.AddScoped<IBaseRepository<Unidade>, BaseRepository<Unidade>>();
 builder.Services.AddScoped<IBaseService<Unidade>, BaseService<Unidade>>();
+
+builder.Services.AddScoped<IBaseRepository<TipoDeclaracao>, BaseRepository<TipoDeclaracao>>();
+builder.Services.AddScoped<IBaseService<TipoDeclaracao>, BaseService<TipoDeclaracao>>();
+
+builder.Services.AddScoped<IBaseRepository<Urf>, BaseRepository<Urf>>();
+builder.Services.AddScoped<IBaseService<Urf>, BaseService<Urf>>();
+
+builder.Services.AddScoped<IBaseRepository<Modal>, BaseRepository<Modal>>();
+builder.Services.AddScoped<IBaseService<Modal>, BaseService<Modal>>();
+
 builder.Services.AddScoped<IBaseRepository<Transportador>, BaseRepository<Transportador>>();
 builder.Services.AddScoped<IBaseService<Transportador>, BaseService<Transportador>>();
 

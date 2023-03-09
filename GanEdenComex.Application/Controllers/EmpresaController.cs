@@ -70,6 +70,46 @@ namespace GanEdenComex.Application.Controllers
 
         }
 
+        [HttpGet("GetByFilters")]
+        public ActionResult<IList<Empresa>> GetByFilters(
+            string q = "",
+            bool importador = false,
+            bool despachante = false,
+            bool exportador = false
+            )
+        {
+            try
+            {
+                IList<Empresa> list;
+
+                if (importador) {
+                    list = _baseUserService.Get().Where(x => x.Importador == true).ToList();
+
+                    
+                }else if (despachante)
+                {
+                    list = _baseUserService.Get().Where(x => x.Despachante == true).ToList();
+
+                }
+                else if(exportador)
+                {
+                    list = _baseUserService.Get().Where(x => x.Exportador == true).ToList();
+                }
+                else
+                {
+                    list = _baseUserService.Get().ToList();
+                }
+
+                return list.Where(x => (x.NomeFantasia!).ToUpper().Contains(q.ToUpper())).ToList();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
+
         [HttpGet("{id}")]
         public ActionResult<Empresa> Get(int id)
         {

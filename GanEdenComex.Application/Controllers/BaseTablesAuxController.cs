@@ -23,6 +23,9 @@ namespace GanEdenComex.Application.Controllers
         private IBaseService<Unidade> _baseUnidade;
         private IBaseService<Naladi> _baseNaladi;
         private IBaseService<Ncm> _baseNcm;
+        private IBaseService<TipoDeclaracao> _baseTipoDecalaracao;
+        private IBaseService<Urf> _baseUrf;
+        private IBaseService<Modal> _baseModal;
 
         public BaseTablesAuxController(
 
@@ -37,7 +40,10 @@ namespace GanEdenComex.Application.Controllers
              IBaseService<AcordoAladi> baseAcordoAladi,
              IBaseService<Unidade> baseUnidade,
              IBaseService<Naladi> baseNaladi,
-             IBaseService<Ncm> baseNcm
+             IBaseService<Ncm> baseNcm,
+             IBaseService<TipoDeclaracao> baseTipoDecalaracao,
+             IBaseService<Urf> baseUrf,
+             IBaseService<Modal> baseModal
         )
         {
               _baseCoberturaCambial = baseCoberturaCambial;
@@ -52,6 +58,9 @@ namespace GanEdenComex.Application.Controllers
               _baseUnidade = baseUnidade;
               _baseNaladi = baseNaladi;
               _baseNcm = baseNcm;
+              _baseTipoDecalaracao = baseTipoDecalaracao;
+               _baseUrf = baseUrf;
+              _baseModal = baseModal;
         }
 
         [HttpPost("CoberturaCambial")]
@@ -382,6 +391,107 @@ namespace GanEdenComex.Application.Controllers
 
         }
 
+
+        //*****************************************************************************************//
+
+        [HttpPost("TipoDeclaracao")]
+        public IActionResult CreateTipoDeclaracao([FromBody] TipoDeclaracao tipoDeclaracao)
+        {
+            if (tipoDeclaracao == null)
+                return NotFound();
+
+            try
+            {
+                return Ok(_baseTipoDecalaracao.Add(tipoDeclaracao));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpGet("TipoDeclaracao")]
+        public ActionResult<IList<TipoDeclaracao>> GetTipoDeclaracao(string q)
+        {
+            try
+            {
+                return _baseTipoDecalaracao.Get().Where(x => (x.codigo! + x.nome!).ToUpper().Contains(q.ToUpper())).ToList();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
+        //*****************************************************************************************//
+
+        [HttpPost("Urf")]
+        public IActionResult CreateUrf([FromBody] Urf urf)
+        {
+            if (urf == null)
+                return NotFound();
+
+            try
+            {
+                return Ok(_baseUrf.Add(urf));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpGet("Urf")]
+        public ActionResult<IList<Urf>> GetUrf(string q)
+        {
+            try
+            {
+                return _baseUrf.Get().Where(x => (x.codigo! + x.nome!).ToUpper().Contains(q.ToUpper())).ToList();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
+
+        //*****************************************************************************************//
+
+        [HttpPost("modal")]
+        public IActionResult CreateModal([FromBody] Modal modal)
+        {
+            if (modal == null)
+                return NotFound();
+
+            try
+            {
+                return Ok(_baseModal.Add(modal));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpGet("Modal")]
+        public ActionResult<IList<Modal>> GetModal()
+        {
+            try
+            {
+                return _baseModal.Get().ToList();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
         //*****************************************************************************************//
 
         [HttpPost("Naladi")]
@@ -429,5 +539,6 @@ namespace GanEdenComex.Application.Controllers
             }
 
         }
+
     }
 }
