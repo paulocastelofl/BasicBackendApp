@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230311194151_AlterTable_ProcessoImportacao")]
+    partial class AlterTableProcessoImportacao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1402,6 +1405,9 @@ namespace GanEdenComex.Infra.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("IdUser")
+                        .HasColumnType("integer");
+
                     b.Property<string>("codigo")
                         .HasColumnType("text");
 
@@ -1412,6 +1418,8 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdUser");
 
                     b.ToTable("TipoUser");
                 });
@@ -1564,9 +1572,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Property<int?>("IdEmpresa")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("IdTipoUser")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
@@ -1579,8 +1584,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("IdEmpresa");
-
-                    b.HasIndex("IdTipoUser");
 
                     b.ToTable("Users");
                 });
@@ -1987,6 +1990,15 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Navigation("Fornecedor");
                 });
 
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.TipoUser", b =>
+                {
+                    b.HasOne("GanEdenComex.Domain.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("IdUser");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Transportador", b =>
                 {
                     b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
@@ -2008,13 +2020,7 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .WithMany()
                         .HasForeignKey("IdEmpresa");
 
-                    b.HasOne("GanEdenComex.Domain.Entities.TipoUser", "TipoUser")
-                        .WithMany()
-                        .HasForeignKey("IdTipoUser");
-
                     b.Navigation("Empresa");
-
-                    b.Navigation("TipoUser");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.ZFM", b =>

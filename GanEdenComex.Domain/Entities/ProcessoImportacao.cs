@@ -11,9 +11,10 @@ namespace GanEdenComex.Domain.Entities
     {
         [ForeignKey("Empresa")]
         public int? IdEmpresa { get; set; }
-        public virtual Empresa? Empresa { get; set; }
-        public int? Despachante {get; set; } //chave estrangeira p/ Empresa
-        public int? DespachantePonta { get; set; } //chave estrangeira p/ Empresa
+        [ForeignKey("Empresa")]
+        public int? IdDespanchante { get; set; }
+        [ForeignKey("Empresa")]
+        public int? IdDespachantePonta { get; set; }
         public string? Codigo { get; set; }
         public string? CentroDeCusto { get; set; }
         public DateTime? DtCriacao { get; set; }
@@ -28,21 +29,16 @@ namespace GanEdenComex.Domain.Entities
         public int? IdModal { get; set; } //chave estrangeira p/ Modal
         public virtual Modal? Modal { get; set; }
         [ForeignKey("Urf")]
-        public int? IDUrfdeChegada { get; set; } //chave estrangeira p/ Urf
-        public virtual Urf? Urf { get; set; }
+        public int? IdUrfdeChegada { get; set; } //chave estrangeira p/ Urf
         [ForeignKey("Urf")]
         public int? IdUrfdeDespacho { get; set; } //chave estrangeira p/ Urf
         public string? TipoDeConsignatario { get; set; }
         public string? ModalidadeDeDespacho { get; set; }
         public DateTime? NecessidadeImportador { get; set; }
-        public string? AnalistaImportador { get; set; }
-        public string? AnalistaDespachante { get; set; }
-        /*[ForeignKey("User")]
+        [ForeignKey("User")]
         public int? IdAnalistaImportador { get; set; }
-        public virtual User? User { get; set; }
         [ForeignKey("User")]
         public int? IdAnalistaDespachante { get; set; }
-        */
         public bool? OperacaoFundap { get; set; }
         public bool? ProcessoCritico { get; set; }
         public string? InformacoesAdicionais { get; set; }

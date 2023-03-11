@@ -71,6 +71,8 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<MatrizTributacao> MatrizTributacao { get; set; }
 
         public virtual DbSet<TipoDeclaracao> TipoDeclaracao { get; set; }
+        public virtual DbSet<ProcessoImportacao> ProcessoImportacao { get; set; }
+        public virtual DbSet<TipoUser> TipoUser { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -114,7 +116,8 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<TipoDoc>();
             modelBuilder.Entity<MatrizTributacao>();
             modelBuilder.Entity<TipoDeclaracao>();
-
+            modelBuilder.Entity<ProcessoImportacao>();
+            modelBuilder.Entity<TipoUser>();
         }
 
 
