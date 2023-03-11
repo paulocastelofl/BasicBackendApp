@@ -15,6 +15,7 @@ namespace GanEdenComex.Domain.Entities
         public int? Despachante {get; set; } //chave estrangeira p/ Empresa
         public int? DespachantePonta { get; set; } //chave estrangeira p/ Empresa
         public string? Codigo { get; set; }
+        public string? CentroDeCusto { get; set; }
         public DateTime? DtCriacao { get; set; }
         public DateTime? DtModificacao { get; set; }
         public DateTime? DtUltimoEvento { get; set; }
@@ -33,11 +34,29 @@ namespace GanEdenComex.Domain.Entities
         public int? IdUrfdeDespacho { get; set; } //chave estrangeira p/ Urf
         public string? TipoDeConsignatario { get; set; }
         public string? ModalidadeDeDespacho { get; set; }
+        public DateTime? NecessidadeImportador { get; set; }
+        public string? AnalistaImportador { get; set; }
+        public string? AnalistaDespachante { get; set; }
+        /*[ForeignKey("User")]
+        public int? IdAnalistaImportador { get; set; }
+        public virtual User? User { get; set; }
+        [ForeignKey("User")]
+        public int? IdAnalistaDespachante { get; set; }
+        */
         public bool? OperacaoFundap { get; set; }
         public bool? ProcessoCritico { get; set; }
-        public string? CentroDeCusto { get; set; }
-        public DateTime? NecessidadeImportador { get; set; }
-        //public string? AnalistaImportador { get; set; }
-        //public string? AnalistaDespachante { get; set; }
+        public string? InformacoesAdicionais { get; set; }
+        /*
+        [ForeignKey("Fatura")]
+        public int? IdFatura { get; set; }
+        public virtual Fatura? Fatura { get; set; }
+        [ForeignKey("Packinglist")]
+        public int? IdPackinglist { get; set; }
+        public virtual Packinglist? Packinglist { get; set; }
+        [ForeignKey("Conhecimento")]
+        public int? IdConhecimento { get; set; }
+        public virtual Conhecimento? Conhecimento { get; set; }
+        */
+        
     }
 }

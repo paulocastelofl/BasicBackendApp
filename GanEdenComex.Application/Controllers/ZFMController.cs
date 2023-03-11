@@ -80,6 +80,20 @@ namespace GanEdenComex.Application.Controllers
             }
         }
 
+        [HttpGet("GetByEmpresa/{idEmpresa}")]
+        public ActionResult<IList<ZFM>> GetByEmpresa(int idEmpresa)
+        {
+            try
+            {
+                return _baseUserService.Get().Where(x => x.IdEmpresa == idEmpresa).ToList();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
