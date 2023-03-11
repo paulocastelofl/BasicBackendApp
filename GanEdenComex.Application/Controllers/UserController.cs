@@ -86,6 +86,20 @@ namespace GanEdenComex.Application.Controllers
 
         }
 
+        [HttpGet("GetByCpf")]
+        public ActionResult<List<User>> GetByCpf(string cpf, int id)
+        {
+            try
+            {
+                return _userService.GetByEmpresa(id).Where(x => x.Cpf!.StartsWith(cpf)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
+
+        }
+
         [HttpGet("{id}")]
         public ActionResult<User> Get(int id)
         {
