@@ -49,6 +49,7 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<TipoAcordoTarifario> TipoAcordoTarifario { get; set; }
         public virtual DbSet<AcordoAladi> AcordoAladi { get; set; }
         public virtual DbSet<Unidade> Unidade { get; set; }
+        public virtual DbSet<Capitulo> Capitulo {get; set; }
         public virtual DbSet<Transportador> Transportador { get; set; }
         public virtual DbSet<Agente> Agente { get; set; }
         public virtual DbSet<AtoLegal> AtoLegal { get; set; }
@@ -89,6 +90,7 @@ namespace GanEdenComex.Infra.Data.Context
             .HasMany(b => b.Associados)
             .WithOne().HasForeignKey(b => b.IdEmpresa);
 
+            modelBuilder.Entity<Capitulo>();
             modelBuilder.Entity<Ncm>();
             modelBuilder.Entity<Fornecedor>();
             modelBuilder.Entity<InscricaoEstadual>();

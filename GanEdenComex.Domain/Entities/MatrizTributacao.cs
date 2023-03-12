@@ -9,6 +9,9 @@ namespace GanEdenComex.Domain.Entities
 {
     public class MatrizTributacao: BaseEntity
     {
+        [ForeignKey("Empresa")]
+        public int? IdEmpresa { get; set; }
+        public virtual Empresa? Empresa { get; set; }
         [ForeignKey("InscricaoEstadual")]
         public int? IdInscricaoEstadual { get; set; }
         public virtual InscricaoEstadual? InscricaoEstadual { get; set; }
