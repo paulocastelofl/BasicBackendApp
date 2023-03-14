@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GanEdenComex.Domain.Entities
 {
-    public class TipoDoc: BaseEntityAux
+    public class TipoDocumentoTributacao: BaseEntityAux
     {
     }
 }

@@ -69,7 +69,8 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<Destinacao> Destinacao { get; set; }
         public virtual DbSet<Utilizacao> Utilizacao { get; set; }
         public virtual DbSet<Tributacao> Tributacao { get; set; }
-        public virtual DbSet<TipoDoc> TipoDoc { get; set; }
+        public virtual DbSet<TipoDocumentoTributacao> TipoDocumentoTributacao { get; set; }
+        public virtual DbSet<ProdutoSuframaNcm> ProdutoSuframaNcm { get; set; }
         public virtual DbSet<MatrizTributacao> MatrizTributacao { get; set; }
 
         public virtual DbSet<TipoDeclaracao> TipoDeclaracao { get; set; }
@@ -117,7 +118,8 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<Destinacao>();
             modelBuilder.Entity<Utilizacao>();
             modelBuilder.Entity<Tributacao>();
-            modelBuilder.Entity<TipoDoc>();
+            modelBuilder.Entity<TipoDocumentoTributacao>();
+            modelBuilder.Entity<ProdutoSuframaNcm>();
             modelBuilder.Entity<MatrizTributacao>();
             modelBuilder.Entity<TipoDeclaracao>();
             modelBuilder.Entity<ProcessoImportacao>();

@@ -15,12 +15,9 @@ namespace GanEdenComex.Domain.Entities
         [ForeignKey("InscricaoEstadual")]
         public int? IdInscricaoEstadual { get; set; }
         public virtual InscricaoEstadual? InscricaoEstadual { get; set; }
-        [ForeignKey("ProdutoSuframa")]
-        public int? IdProdutoSuframa { get; set; }
-        public virtual ProdutoSuframa? ProdutoSuframa { get; set; }
-        [ForeignKey("Ncm")]
-        public int? IdNcm { get; set; }
-        public virtual Ncm? Ncm { get; set; }
+        [ForeignKey("ProdutoSuframaNcm")]
+        public int? IdProdutoSuframaNcm { get; set; }
+        public virtual ProdutoSuframaNcm? ProdutoSuframaNcm { get; set; }
         [ForeignKey("Destinacao")]
         public int? IdDestinacao { get; set; }
         public virtual Destinacao? Destinacao { get; set; }
@@ -31,9 +28,9 @@ namespace GanEdenComex.Domain.Entities
         public int? IdTributacao { get; set; }
         public virtual Tributacao? Tributacao { get; set; }
         public double? Cra { get; set; }
-        [ForeignKey("TipoDoc")]
-        public int? IdTipoDoc { get; set; }
-        public virtual TipoDoc? TipoDoc { get; set; }
+        [ForeignKey("TipoDocumentoTributacao")]
+        public int? IdTipoDocumentoTributacao { get; set; }
+        public virtual TipoDocumentoTributacao? TipoDocumentoTributacao { get; set; }
         public string? Decreto { get; set; }
         public string? NumeroDocumento { get; set; }
         public DateTime? InicioVigencia { get; set; }
