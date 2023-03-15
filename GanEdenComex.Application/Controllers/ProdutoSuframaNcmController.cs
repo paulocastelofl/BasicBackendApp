@@ -8,24 +8,24 @@ namespace GanEdenComex.Application.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [AllowAnonymous]
-    public class MatrizTributacaoController : Controller
+    public class ProdutoSuframaNcmController : Controller
     {
-        private IBaseService<MatrizTributacao> _baseUserService;
+        private IBaseService<ProdutoSuframaNcm> _baseUserService;
 
-        public MatrizTributacaoController(IBaseService<MatrizTributacao> baseUserService)
+        public ProdutoSuframaNcmController(IBaseService<ProdutoSuframaNcm> baseUserService)
         {
             _baseUserService = baseUserService;
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] MatrizTributacao matriztributacao)
+        public IActionResult Create([FromBody] ProdutoSuframaNcm produtosuframancm)
         {
-            if (matriztributacao == null)
+            if (produtosuframancm == null)
                 return NotFound();
 
             try
             {
-                return Ok(_baseUserService.Add(matriztributacao));
+                return Ok(_baseUserService.Add(produtosuframancm));
             }
             catch (Exception ex)
             {
@@ -34,42 +34,14 @@ namespace GanEdenComex.Application.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update([FromBody] MatrizTributacao matriztributacao)
+        public IActionResult Update([FromBody] ProdutoSuframaNcm produtosuframancm)
         {
-            if (matriztributacao == null)
+            if (produtosuframancm == null)
                 return NotFound();
 
             try
             {
-                return Ok(_baseUserService.Update(matriztributacao));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
-
-        }
-
-        [HttpGet("GetByEmpresa/{idEmpresa}")]
-        public ActionResult<IList<MatrizTributacao>> GetByEmpresa(int idEmpresa)
-        {
-            try
-            {
-                return _baseUserService.Get().Where(x => x.IdEmpresa == idEmpresa).ToList();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
-
-        }
-
-        [HttpGet]
-        public ActionResult<IList<MatrizTributacao>> Get()
-        {
-            try
-            {
-                return _baseUserService.Get().ToList();
+                return Ok(_baseUserService.Update(produtosuframancm));
             }
             catch (Exception ex)
             {
@@ -79,7 +51,7 @@ namespace GanEdenComex.Application.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<MatrizTributacao> Get(int id)
+        public ActionResult<ProdutoSuframaNcm> Get(int id)
         {
             if (id == 0)
                 return NotFound();
