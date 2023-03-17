@@ -208,6 +208,18 @@ builder.Services.AddScoped<IBaseService<ProdutoSuframa>, BaseService<ProdutoSufr
 builder.Services.AddScoped<IBaseRepository<ProdutoSuframaNcm>, BaseRepository<ProdutoSuframaNcm>>();
 builder.Services.AddScoped<IBaseService<ProdutoSuframaNcm>, BaseService<ProdutoSuframaNcm>>();
 
+builder.Services.AddScoped<IBaseRepository<Destinacao>, BaseRepository<Destinacao>>();
+builder.Services.AddScoped<IBaseService<Destinacao>, BaseService<Destinacao>>();
+
+builder.Services.AddScoped<IBaseRepository<Utilizacao>, BaseRepository<Utilizacao>>();
+builder.Services.AddScoped<IBaseService<Utilizacao>, BaseService<Utilizacao>>();
+
+builder.Services.AddScoped<IBaseRepository<Tributacao>, BaseRepository<Tributacao>>();
+builder.Services.AddScoped<IBaseService<Tributacao>, BaseService<Tributacao>>();
+
+builder.Services.AddScoped<IBaseRepository<TipoDocumentoTributacao>, BaseRepository<TipoDocumentoTributacao>>();
+builder.Services.AddScoped<IBaseService<TipoDocumentoTributacao>, BaseService<TipoDocumentoTributacao>>();
+
 builder.Services.AddScoped<IBaseRepository<MatrizTributacao>, BaseRepository<MatrizTributacao>>();
 builder.Services.AddScoped<IBaseService<MatrizTributacao>, BaseService<MatrizTributacao>>();
 
