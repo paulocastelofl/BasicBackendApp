@@ -193,6 +193,27 @@ builder.Services.AddScoped<IBaseService<Naladi>, BaseService<Naladi>>();
 builder.Services.AddScoped<IBaseRepository<TipoFornecedor>, BaseRepository<TipoFornecedor>>();
 builder.Services.AddScoped<IBaseService<TipoFornecedor>, BaseService<TipoFornecedor>>();
 
+builder.Services.AddScoped<IBaseRepository<ZFM>, BaseRepository<ZFM>>();
+builder.Services.AddScoped<IBaseService<ZFM>, BaseService<ZFM>>();
+
+builder.Services.AddScoped<IBaseRepository<TipoProduto>, BaseRepository<TipoProduto>>();
+builder.Services.AddScoped<IBaseService<TipoProduto>, BaseService<TipoProduto>>();
+
+builder.Services.AddScoped<IBaseRepository<TipoUser>, BaseRepository<TipoUser>>();
+builder.Services.AddScoped<IBaseService<TipoUser>, BaseService<TipoUser>>();
+
+builder.Services.AddScoped<IBaseRepository<ProdutoSuframa>, BaseRepository<ProdutoSuframa>>();
+builder.Services.AddScoped<IBaseService<ProdutoSuframa>, BaseService<ProdutoSuframa>>();
+
+builder.Services.AddScoped<IBaseRepository<ProdutoSuframaNcm>, BaseRepository<ProdutoSuframaNcm>>();
+builder.Services.AddScoped<IBaseService<ProdutoSuframaNcm>, BaseService<ProdutoSuframaNcm>>();
+
+builder.Services.AddScoped<IBaseRepository<MatrizTributacao>, BaseRepository<MatrizTributacao>>();
+builder.Services.AddScoped<IBaseService<MatrizTributacao>, BaseService<MatrizTributacao>>();
+
+builder.Services.AddScoped<IBaseRepository<ProcessoImportacao>, BaseRepository<ProcessoImportacao>>();
+builder.Services.AddScoped<IBaseService<ProcessoImportacao>, BaseService<ProcessoImportacao>>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 
