@@ -93,7 +93,7 @@ namespace GanEdenComex.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(Json(new { ex.HResult }));
             }
 
         }
