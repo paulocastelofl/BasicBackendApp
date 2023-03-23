@@ -18,6 +18,9 @@ namespace GanEdenComex.Domain.Entities
         [ForeignKey("ProdutoSuframaNcm")]
         public int? IdProdutoSuframaNcm { get; set; }
         public virtual ProdutoSuframaNcm? ProdutoSuframaNcm { get; set; }
+        [ForeignKey("Ncm")]
+        public int? IdNcm { get; set; }
+        public virtual Ncm? Ncm { get; set; }
         [ForeignKey("Destinacao")]
         public int? IdDestinacao { get; set; }
         public virtual Destinacao? Destinacao { get; set; }
