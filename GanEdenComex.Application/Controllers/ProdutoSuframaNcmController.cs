@@ -50,6 +50,20 @@ namespace GanEdenComex.Application.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult<IList<ProdutoSuframaNcm>> Get()
+        {
+            try
+            {
+                return _baseUserService.Get().ToList();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
         [HttpGet("{id}")]
         public ActionResult<ProdutoSuframaNcm> Get(int id)
         {

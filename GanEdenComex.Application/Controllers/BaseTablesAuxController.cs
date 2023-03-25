@@ -26,6 +26,7 @@ namespace GanEdenComex.Application.Controllers
         private IBaseService<TipoDeclaracao> _baseTipoDecalaracao;
         private IBaseService<Urf> _baseUrf;
         private IBaseService<Modal> _baseModal;
+        private IBaseService<ProdutoSuframaNcm> _baseProdutoSuframaNcm;
 
         public BaseTablesAuxController(
 
@@ -43,7 +44,8 @@ namespace GanEdenComex.Application.Controllers
              IBaseService<Ncm> baseNcm,
              IBaseService<TipoDeclaracao> baseTipoDecalaracao,
              IBaseService<Urf> baseUrf,
-             IBaseService<Modal> baseModal
+             IBaseService<Modal> baseModal,
+             IBaseService<ProdutoSuframaNcm> baseProdutoSuframaNcm
         )
         {
               _baseCoberturaCambial = baseCoberturaCambial;
@@ -59,8 +61,9 @@ namespace GanEdenComex.Application.Controllers
               _baseNaladi = baseNaladi;
               _baseNcm = baseNcm;
               _baseTipoDecalaracao = baseTipoDecalaracao;
-               _baseUrf = baseUrf;
+              _baseUrf = baseUrf;
               _baseModal = baseModal;
+              _baseProdutoSuframaNcm = baseProdutoSuframaNcm;
         }
 
         [HttpPost("CoberturaCambial")]
@@ -532,6 +535,20 @@ namespace GanEdenComex.Application.Controllers
             try
             {
                 return _baseNcm.Get().Where(x => (x.Codigo!).ToUpper().Contains(q.ToUpper())).ToList();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
+        [HttpGet("ProdutoSuframaNcm")]
+        public ActionResult<IList<ProdutoSuframaNcm>> GetProdutoSuframaNcm(string q)
+        {
+            try
+            {
+                return _baseProdutoSuframaNcm.Get().Where(x => (x.ProdutoSuframa.codigo!).ToUpper().Contains(q.ToUpper())).ToList();
             }
             catch (Exception ex)
             {
