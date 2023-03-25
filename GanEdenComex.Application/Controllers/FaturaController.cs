@@ -50,6 +50,20 @@ namespace GanEdenComex.Application.Controllers
 
         }
 
+        [HttpGet("GetByProcessoImportacao/{idProcessoImportacao}")]
+        public ActionResult<IList<Fatura>> GetByProcessoImportacao(int idProcessoImportacao)
+        {
+            try
+            {
+                return _baseUserService.Get().Where(x => x.IdProcessoImportacao == idProcessoImportacao).ToList();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
         [HttpGet]
         public ActionResult<IList<Fatura>> Get()
         {
