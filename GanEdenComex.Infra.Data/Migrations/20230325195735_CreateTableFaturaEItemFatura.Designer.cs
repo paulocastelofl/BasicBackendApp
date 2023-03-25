@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230325195735_CreateTableFaturaEItemFatura")]
+    partial class CreateTableFaturaEItemFatura
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -613,85 +616,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.ToTable("Fabricante");
                 });
 
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.Fatura", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("IdCoberturaCambial")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdFornecedor")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdFundamentoLegal")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdIncoterms")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdItemFatura")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdModalidadePagamento")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdMoeda")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdMoedaFrete")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdMoedaSeguro")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdProcessoImportacao")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime?>("dtEmissao")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime?>("dtModificacao")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("localCondicao")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("numDiasPagamento")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("numeroFatura")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("pesoLiquido")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("tipoVinculoFornecedor")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("valorTotal")
-                        .HasColumnType("double precision");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdCoberturaCambial");
-
-                    b.HasIndex("IdFornecedor");
-
-                    b.HasIndex("IdFundamentoLegal");
-
-                    b.HasIndex("IdIncoterms");
-
-                    b.HasIndex("IdModalidadePagamento");
-
-                    b.HasIndex("IdProcessoImportacao");
-
-                    b.ToTable("Fatura");
-                });
-
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Fornecedor", b =>
                 {
                     b.Property<int>("Id")
@@ -888,29 +812,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.HasIndex("IdFornecedor");
 
                     b.ToTable("Item");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.ItemFatura", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("IdFatura")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdItem")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdFatura");
-
-                    b.HasIndex("IdItem");
-
-                    b.ToTable("ItemFatura");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.MatrizTributacao", b =>
@@ -2057,45 +1958,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Navigation("Pais");
                 });
 
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.Fatura", b =>
-                {
-                    b.HasOne("GanEdenComex.Domain.Entities.CoberturaCambial", "CoberturaCambial")
-                        .WithMany()
-                        .HasForeignKey("IdCoberturaCambial");
-
-                    b.HasOne("GanEdenComex.Domain.Entities.Fornecedor", "Fornecedor")
-                        .WithMany()
-                        .HasForeignKey("IdFornecedor");
-
-                    b.HasOne("GanEdenComex.Domain.Entities.FundamentoLegal", "FundamentoLegal")
-                        .WithMany()
-                        .HasForeignKey("IdFundamentoLegal");
-
-                    b.HasOne("GanEdenComex.Domain.Entities.Incoterms", "Incoterms")
-                        .WithMany()
-                        .HasForeignKey("IdIncoterms");
-
-                    b.HasOne("GanEdenComex.Domain.Entities.ModalidadePagamento", "ModalidadePagamento")
-                        .WithMany()
-                        .HasForeignKey("IdModalidadePagamento");
-
-                    b.HasOne("GanEdenComex.Domain.Entities.ProcessoImportacao", "ProcessoImportacao")
-                        .WithMany()
-                        .HasForeignKey("IdProcessoImportacao");
-
-                    b.Navigation("CoberturaCambial");
-
-                    b.Navigation("Fornecedor");
-
-                    b.Navigation("FundamentoLegal");
-
-                    b.Navigation("Incoterms");
-
-                    b.Navigation("ModalidadePagamento");
-
-                    b.Navigation("ProcessoImportacao");
-                });
-
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Fornecedor", b =>
                 {
                     b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
@@ -2133,21 +1995,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Navigation("Empresa");
 
                     b.Navigation("Fornecedor");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.ItemFatura", b =>
-                {
-                    b.HasOne("GanEdenComex.Domain.Entities.Fatura", "Fatura")
-                        .WithMany("ItensFaturas")
-                        .HasForeignKey("IdFatura");
-
-                    b.HasOne("GanEdenComex.Domain.Entities.Item", "Item")
-                        .WithMany()
-                        .HasForeignKey("IdItem");
-
-                    b.Navigation("Fatura");
-
-                    b.Navigation("Item");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.MatrizTributacao", b =>
@@ -2353,11 +2200,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Navigation("Associados");
 
                     b.Navigation("InscricaoEstaduais");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.Fatura", b =>
-                {
-                    b.Navigation("ItensFaturas");
                 });
 #pragma warning restore 612, 618
         }
