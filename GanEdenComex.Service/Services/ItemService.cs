@@ -210,7 +210,7 @@ namespace GanEdenComex.Service.Services
                 {
                     Headers =
                     {
-                        { "X-AuthToken", "NjIzOTgzMWEtNWIxMy00NWZkLWEwYTgtZjQ1ODA5NjM3ZThhOjoxNjc4NDc3NDcwODg1" },
+                        { "X-AuthToken", "MzAxOThiMTgtZWI1Mi00ODMzLWFkMzItZTY1ZTk5OGZmYzgxOjoxNjgwNDY5MTkyMDA4" },
                     }
                 };
 
