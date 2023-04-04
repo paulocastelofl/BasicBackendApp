@@ -3,6 +3,7 @@ using System;
 using GanEdenComex.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20230330202942_TableDocumentoImportacao")]
+    partial class TableDocumentoImportacao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -391,8 +394,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdProcesso");
 
                     b.ToTable("DocumentoImportacao");
                 });
@@ -2071,15 +2072,6 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Navigation("Empresa");
                 });
 
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.DocumentoImportacao", b =>
-                {
-                    b.HasOne("GanEdenComex.Domain.Entities.ProcessoImportacao", "ProcessoImportacao")
-                        .WithMany("DocumentoImportacao")
-                        .HasForeignKey("IdProcesso");
-
-                    b.Navigation("ProcessoImportacao");
-                });
-
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Documentos", b =>
                 {
                     b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
@@ -2454,11 +2446,6 @@ namespace GanEdenComex.Infra.Data.Migrations
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Fatura", b =>
                 {
                     b.Navigation("ItensFaturas");
-                });
-
-            modelBuilder.Entity("GanEdenComex.Domain.Entities.ProcessoImportacao", b =>
-                {
-                    b.Navigation("DocumentoImportacao");
                 });
 #pragma warning restore 612, 618
         }

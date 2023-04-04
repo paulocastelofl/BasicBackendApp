@@ -53,6 +53,8 @@ namespace GanEdenComex.Domain.Entities
         public bool? OperacaoFundap { get; set; }
         public bool? ProcessoCritico { get; set; }
         public string? InformacoesAdicionais { get; set; }
+
+        public virtual ICollection<DocumentoImportacao>? DocumentoImportacao { get; set; }
         /*
         [ForeignKey("Fatura")]
         public int? IdFatura { get; set; }
@@ -64,6 +66,6 @@ namespace GanEdenComex.Domain.Entities
         public int? IdConhecimento { get; set; }
         public virtual Conhecimento? Conhecimento { get; set; }
         */
-        
+
     }
 }
