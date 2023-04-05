@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GanEdenComex.Infra.Data.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    [Migration("20230403014608_CreateTableTipoDocIntrucaoCarga")]
-    partial class CreateTableTipoDocIntrucaoCarga
+    [Migration("20230405005523_ajustes-tbl-processo")]
+    partial class ajustestblprocesso
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -359,6 +359,45 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Destinacao");
+                });
+
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.DocumentoImportacao", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CaminhoDocumento")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Documento")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("DtCriacao")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int?>("IdProcesso")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Numero")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Recebimento")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Tipo")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Versao")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdProcesso");
+
+                    b.ToTable("DocumentoImportacao");
                 });
 
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Documentos", b =>
@@ -2057,6 +2096,15 @@ namespace GanEdenComex.Infra.Data.Migrations
                     b.Navigation("Empresa");
                 });
 
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.DocumentoImportacao", b =>
+                {
+                    b.HasOne("GanEdenComex.Domain.Entities.ProcessoImportacao", "ProcessoImportacao")
+                        .WithMany("DocumentoImportacao")
+                        .HasForeignKey("IdProcesso");
+
+                    b.Navigation("ProcessoImportacao");
+                });
+
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Documentos", b =>
                 {
                     b.HasOne("GanEdenComex.Domain.Entities.Empresa", "Empresa")
@@ -2431,6 +2479,11 @@ namespace GanEdenComex.Infra.Data.Migrations
             modelBuilder.Entity("GanEdenComex.Domain.Entities.Fatura", b =>
                 {
                     b.Navigation("ItensFaturas");
+                });
+
+            modelBuilder.Entity("GanEdenComex.Domain.Entities.ProcessoImportacao", b =>
+                {
+                    b.Navigation("DocumentoImportacao");
                 });
 #pragma warning restore 612, 618
         }

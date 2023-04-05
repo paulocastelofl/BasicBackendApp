@@ -142,5 +142,7 @@ namespace GanEdenComex.Infra.Data.Context
 
         dotnet ef database update --project .\GanEdenComex.Infra.Data --startup-project .\GanEdenComex.Application
 
+     dotnet ef migrations remove --project .\GanEdenComex.Infra.Data --startup-project .\GanEdenComex.Application
+
     */
 }
