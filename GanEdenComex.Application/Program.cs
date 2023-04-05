@@ -231,6 +231,10 @@ builder.Services.AddScoped<IBaseService<TipoDocInstrucaoCarga>, BaseService<Tipo
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+builder.Services.AddScoped<IBaseRepository<DocumentoImportacao>, BaseRepository<DocumentoImportacao>>();
+builder.Services.AddScoped<IBaseService<DocumentoImportacao>, BaseService<DocumentoImportacao>>();
+
+
 
 
 
