@@ -226,6 +226,9 @@ builder.Services.AddScoped<IBaseService<MatrizTributacao>, BaseService<MatrizTri
 builder.Services.AddScoped<IBaseRepository<ProcessoImportacao>, BaseRepository<ProcessoImportacao>>();
 builder.Services.AddScoped<IBaseService<ProcessoImportacao>, BaseService<ProcessoImportacao>>();
 
+builder.Services.AddScoped<IBaseRepository<TipoDocInstrucaoCarga>, BaseRepository<TipoDocInstrucaoCarga>>();
+builder.Services.AddScoped<IBaseService<TipoDocInstrucaoCarga>, BaseService<TipoDocInstrucaoCarga>>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 
