@@ -79,6 +79,9 @@ namespace GanEdenComex.Infra.Data.Context
         public virtual DbSet<ItemFatura> ItemFatura { get; set; }
         public virtual DbSet<TipoDocInstrucaoCarga> TipoDocInstrucaoCarga { get; set; }
         public virtual DbSet<DocumentoImportacao> DocumentoImportacao { get; set; }
+        public virtual DbSet<Uf> Uf { get; set; }
+        public virtual DbSet<InstituicaoFinanceira> InstituicaoFinanceira { get; set; }
+        public virtual DbSet<OrgaoAnuente> OrgaoAnuente { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -131,6 +134,9 @@ namespace GanEdenComex.Infra.Data.Context
             modelBuilder.Entity<ItemFatura>();
             modelBuilder.Entity<TipoDocInstrucaoCarga>();
             modelBuilder.Entity<DocumentoImportacao>();
+            modelBuilder.Entity<Uf>();
+            modelBuilder.Entity<InstituicaoFinanceira>();
+            modelBuilder.Entity<OrgaoAnuente>();
         }
 
 
