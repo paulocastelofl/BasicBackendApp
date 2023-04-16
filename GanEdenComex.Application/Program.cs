@@ -234,9 +234,14 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IBaseRepository<DocumentoImportacao>, BaseRepository<DocumentoImportacao>>();
 builder.Services.AddScoped<IBaseService<DocumentoImportacao>, BaseService<DocumentoImportacao>>();
 
+builder.Services.AddScoped<IBaseRepository<Uf>, BaseRepository<Uf>>();
+builder.Services.AddScoped<IBaseService<Uf>, BaseService<Uf>>();
 
+builder.Services.AddScoped<IBaseRepository<OrgaoAnuente>, BaseRepository<OrgaoAnuente>>();
+builder.Services.AddScoped<IBaseService<OrgaoAnuente>, BaseService<OrgaoAnuente>>();
 
-
+builder.Services.AddScoped<IBaseRepository<InstituicaoFinanceira>, BaseRepository<InstituicaoFinanceira>>();
+builder.Services.AddScoped<IBaseService<InstituicaoFinanceira>, BaseService<InstituicaoFinanceira>>();
 
 var app = builder.Build();
 
